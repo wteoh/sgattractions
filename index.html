@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="./css/card.css">
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#test').click(function() {
+            window.location = 'attractions.html'
+        });
+      });
+    </script>
+</head>
+
+<body>
+
+
+    <div data-role="page">
+
+        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+                <li data-icon="delete" style="background-color:#111;">
+                    <a href="#" data-rel="close">Home</a>
+                </li>
+                <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                    <a href="../about/accessibility.html">My Internaries</a>
+                </li>
+                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                    <a href="../content/content-collapsible-set.html">Accordions</a>
+                </li>
+            </ul>
+        </div>
+        <div data-role="header">
+            <h1>SG Atttrations</h1>
+            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        </div>
+
+        <div class="ui-grid-b ui-responsive ui-content" data-role="main">
+                <div class="ui-block-a" id="test">
+                    <div class="card">
+                        <div class="card-image">
+                            <img alt="home" src="./images/raffles.jpg" />
+                            <h2>Sights & Landmarks</h2>
+                        </div>
+                    </div>
+                </div>
+            <div class="ui-block-b">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="./images/nature.jpg" />
+                        <h2>Nature & Parks</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block-c">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="./images/ion.jpg" />
+                        <h2>Shopping</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block-d">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="./images/universal.jpg" />
+                        <h2>Recreation & Leisure</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>

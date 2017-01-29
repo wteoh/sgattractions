@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="./css/card.css">
+
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.getJSON("./json/attractions.json", function(data) {
+                console.log('tesddsdf');
+                $.each(data, function(key, val) {
+                    $('#attraction-list').append("<li id='" + key + "'>" + val.name + "</li>");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <ul data-role="listview" data-inset="true">
+        <!-- <li>
+            <a href="#">
+                <img src="../_assets/img/album-bb.jpg">
+                <h2>Broken Bells</h2>
+                <p>Broken Bells</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../_assets/img/album-hc.jpg">
+                <h2>Warning</h2>
+                <p>Hot Chip</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../_assets/img/album-p.jpg">
+                <h2>Wolfgang Amadeus Phoenix</h2>
+                <p>Phoenix</p>
+            </a>
+        </li> -->
+    </ul>
+</body>
+
+</html>
