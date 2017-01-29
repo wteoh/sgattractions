@@ -68,9 +68,10 @@
             $('#attraction-list').empty();
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
-                    if(val.category == localStorage.category) {
-                      $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
-                          val.name + "</h2></a></li>");
+                    if (val.category == localStorage.category) {
+                        $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                            "' class='thumbnail'/><h2>" +
+                            val.name + "</h2></a></li>");
                     }
 
                 });
@@ -115,34 +116,34 @@
                 </a>
             </div>
             <div class="ui-block-b">
-              <a href="#" id="nature-button">
-                <div class="card">
-                    <div class="card-image">
-                        <img alt="home" src="./images/nature.jpg" />
-                        <h2>Nature & Parks</h2>
+                <a href="#" id="nature-button">
+                    <div class="card">
+                        <div class="card-image">
+                            <img alt="home" src="./images/nature.jpg" />
+                            <h2>Nature & Parks</h2>
+                        </div>
                     </div>
-                </div>
-              </a>
+                </a>
             </div>
             <div class="ui-block-c">
-              <a href="#" id="shopping-button">
-                <div class="card">
-                    <div class="card-image">
-                        <img alt="home" src="./images/ion.jpg" />
-                        <h2>Shopping</h2>
+                <a href="#" id="shopping-button">
+                    <div class="card">
+                        <div class="card-image">
+                            <img alt="home" src="./images/ion.jpg" />
+                            <h2>Shopping</h2>
+                        </div>
                     </div>
-                </div>
-              </a>
+                </a>
             </div>
             <div class="ui-block-d">
-              <a href="#" id="recreation-button">
-                <div class="card">
-                    <div class="card-image">
-                        <img alt="home" src="./images/universal.jpg" />
-                        <h2>Recreation & Leisure</h2>
+                <a href="#" id="recreation-button">
+                    <div class="card">
+                        <div class="card-image">
+                            <img alt="home" src="./images/universal.jpg" />
+                            <h2>Recreation & Leisure</h2>
+                        </div>
                     </div>
-                </div>
-              </a>
+                </a>
             </div>
         </div>
     </div>
@@ -151,26 +152,29 @@
 
 <div data-role="page" id="attractions">
 
-  <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
 
-      <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-          <li data-icon="delete" style="background-color:#111;">
-              <a href="#" data-rel="close">Home</a>
-          </li>
-          <li data-filtertext="wai-aria voiceover accessibility screen reader">
-              <a href="../about/accessibility.html">My Internaries</a>
-          </li>
-          <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-              <a href="../content/content-collapsible-set.html">Accordions</a>
-          </li>
+        <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+            <li data-icon="delete" style="background-color:#111;">
+                <a href="#" data-rel="close">Home</a>
+            </li>
+            <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                <a href="../about/accessibility.html">My Internaries</a>
+            </li>
+            <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                <a href="../content/content-collapsible-set.html">Accordions</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header">
+        <h1>SG Atttrations</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+    <div data-role="main">
+      <ul data-role="listview" data-inset="true" id="attraction-list">
       </ul>
-  </div>
-  <div data-role="header">
-      <h1>SG Atttrations</h1>
-      <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-  </div>
-    <ul data-role="listview" data-inset="true" id="attraction-list">
-    </ul>
+    </div>
+
 </div>
 
 </html>
