@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="./css/card.css">
 
     <script type="text/javascript">
-    $(document).ready(function(){
-        $('#test').click(function() {
-            window.location = 'attractions.html'
+        $(document).ready(function() {
+            $('#test').click(function() {
+                window.location = 'attractions.html'
+            });
+
+
         });
-      });
     </script>
 </head>
 
@@ -47,14 +49,16 @@
         </div>
 
         <div class="ui-grid-b ui-responsive ui-content" data-role="main">
-                <div class="ui-block-a" id="test">
-                    <div class="card">
-                        <div class="card-image">
-                            <img alt="home" src="./images/raffles.jpg" />
-                            <h2>Sights & Landmarks</h2>
-                        </div>
+            <div class="ui-block-a" id="test">
+              <a href="redirect.php?to=redirect-target.html">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="./images/raffles.jpg" />
+                        <h2>Sights & Landmarks</h2>
                     </div>
                 </div>
+                </a>
+            </div>
             <div class="ui-block-b">
                 <div class="card">
                     <div class="card-image">
