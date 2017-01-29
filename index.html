@@ -43,6 +43,24 @@
                 // Change page
                 $.mobile.changePage("#attractions");
             });
+
+            $(document).on('click', '#shopping-button', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "shopping";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
+            });
+
+            $(document).on('click', '#recreation-button', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Recreation & Leisure";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
+            });
         });
 
         $(document).on('pagebeforeshow', '#attractions', function() {
@@ -108,20 +126,24 @@
               </a>
             </div>
             <div class="ui-block-c">
+              <a href="#" id="shopping-button">
                 <div class="card">
                     <div class="card-image">
                         <img alt="home" src="./images/ion.jpg" />
                         <h2>Shopping</h2>
                     </div>
                 </div>
+              </a>
             </div>
             <div class="ui-block-d">
+              <a href="#" id="recreation-button">
                 <div class="card">
                     <div class="card-image">
                         <img alt="home" src="./images/universal.jpg" />
                         <h2>Recreation & Leisure</h2>
                     </div>
                 </div>
+              </a>
             </div>
         </div>
     </div>
