@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="./css/card.css">
+
 
     <meta charset="utf-8">
     <title></title>
@@ -21,7 +21,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 console.log('tesddsdf');
                 $.each(data, function(key, val) {
-                    $('#attraction-list').append("<li id='" + key + "'><a href='#'><img src='" + val.xx + "' /><h2>" + val.name + "</h2></a></li>");
+                    $('#attraction-list').append("<li id='" + key + "'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.xx + "' /><h2>" + val.name + "</h2></a></li>");
                 });
             });
         });
