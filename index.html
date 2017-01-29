@@ -47,6 +47,7 @@
 
         $(document).on('pagebeforeshow', '#attractions', function() {
             //alert('My name is ' + localStorage.category + ' ' + localStorage.lastname);
+            $('#attraction-list').empty();
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if(val.category == localStorage.category) {
