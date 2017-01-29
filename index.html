@@ -14,35 +14,25 @@
     <link rel="stylesheet" href="./css/card.css">
     <link rel="stylesheet" href="./css/thumbnail.css">
     <script type="text/javascript">
-        $(document).ready(function() {
-            $.getJSON("./json/attractions.json", function(data) {
-                console.log('tesddsdf');
-                $.each(data, function(key, val) {
-                    $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
-                        val.name + "</h2></a></li>");
-                });
-            });
+        // $(document).ready(function() {
+        //     $.getJSON("./json/attractions.json", function(data) {
+        //         console.log('tesddsdf');
+        //         $.each(data, function(key, val) {
+        //             $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
+        //                 val.name + "</h2></a></li>");
+        //         });
+        //     });
+        //
+        // });
 
-        });
-
-
-        /* Pass data with changePage */
-        $(document).on("pageinit", "#main", function() {
-            $(".data").on("click", function() {
-                $.mobile.pageContainer.pagecontainer("change", "#attractions", {
-                    stuff: this.id,
-                    transition: "flip"
-                });
-            });
-        });
-
-        $(document).on("pagebeforechange", function(e, data) {
-            $.getJSON("./json/attractions.json", function(data) {
-                console.log('tesddsdf');
-                $.each(data, function(key, val) {
-                    $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
-                        val.name + "</h2></a></li>");
-                });
+        $(document).on('pagebeforeshow', '#index', function() {
+            $(document).on('click', '#sights-button', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "sights";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
             });
         });
     </script>
@@ -74,7 +64,7 @@
 
         <div class="ui-responsive ui-content" data-role="main">
             <div class="ui-block-a" id="test">
-                <a href="#attraction" id="attractionlink">
+                <a href="#" id="sights-button">
                     <div class="card">
                         <div class="card-image">
                             <img alt="home" src="./images/raffles.jpg" />
