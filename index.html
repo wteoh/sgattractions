@@ -12,11 +12,38 @@
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="./css/card.css">
-
+    <link rel="stylesheet" href="./css/thumbnail.css">
     <script type="text/javascript">
         $(document).ready(function() {
+            $.getJSON("./json/attractions.json", function(data) {
+                console.log('tesddsdf');
+                $.each(data, function(key, val) {
+                    $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
+                        val.name + "</h2></a></li>");
+                });
+            });
+
+        });
 
 
+        /* Pass data with changePage */
+        $(document).on("pageinit", "#main", function() {
+            $(".data").on("click", function() {
+                $.mobile.pageContainer.pagecontainer("change", "#attractions", {
+                    stuff: this.id,
+                    transition: "flip"
+                });
+            });
+        });
+
+        $(document).on("pagebeforechange", function(e, data) {
+            $.getJSON("./json/attractions.json", function(data) {
+                console.log('tesddsdf');
+                $.each(data, function(key, val) {
+                    $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
+                        val.name + "</h2></a></li>");
+                });
+            });
         });
     </script>
 </head>
@@ -24,7 +51,7 @@
 <body>
 
 
-    <div data-role="page">
+    <div data-role="page" id="main">
 
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
 
@@ -47,13 +74,13 @@
 
         <div class="ui-responsive ui-content" data-role="main">
             <div class="ui-block-a" id="test">
-              <a href="google.com">
-                <div class="card">
-                    <div class="card-image">
-                        <img alt="home" src="./images/raffles.jpg" />
-                        <h2>Sights & Landmarks</h2>
+                <a href="#attraction" id="attractionlink">
+                    <div class="card">
+                        <div class="card-image">
+                            <img alt="home" src="./images/raffles.jpg" />
+                            <h2>Sights & Landmarks</h2>
+                        </div>
                     </div>
-                </div>
                 </a>
             </div>
             <div class="ui-block-b">
@@ -83,8 +110,11 @@
         </div>
     </div>
 
-    </div>
-
 </body>
+
+<div data-role="page" id="attractions">
+    <ul data-role="listview" data-inset="true" id="attraction-list">
+    </ul>
+</div>
 
 </html>
