@@ -60,12 +60,11 @@
             });
         });
 
-        //load attraction data based on category from localStorage
+        //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
-            //get attractions JSON and populate list based on category
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
-                    $('#category-cards').append("<div><a href='#' id='" + val.id+ "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>'"+ val.name +"'</h2></div></div></a>");
+                    $('#category-cards').append("<div><a href='#' id='" + val.id+ "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>"+ val.name +"</h2></div></div></a>");
 
                 });
             });
@@ -114,7 +113,7 @@
         </div>
         <!-- cardview for all category -->
         <div class="ui-responsive ui-content" data-role="main" id="category-cards">
-            
+
         </div>
     </div>
 
