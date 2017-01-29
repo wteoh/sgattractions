@@ -29,7 +29,7 @@
             $(document).on('click', '#sights-button', function() {
                 // store some data
                 if (typeof(Storage) !== "undefined") {
-                    localStorage.category = "sights";
+                    localStorage.category = "Sights & Landmarks";
                 }
                 // Change page
                 $.mobile.changePage("#attractions");
@@ -39,10 +39,12 @@
         $(document).on('pagebeforeshow', '#attractions', function() {
             //alert('My name is ' + localStorage.category + ' ' + localStorage.lastname);
             $.getJSON("./json/attractions.json", function(data) {
-                console.log('tesddsdf');
                 $.each(data, function(key, val) {
-                    $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
-                        val.name + "</h2></a></li>");
+                    if(val.category == localStorage.category) {
+                      $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
+                          val.name + "</h2></a></li>");
+                    }
+
                 });
             });
 
