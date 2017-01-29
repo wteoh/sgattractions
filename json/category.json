@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Sights & Landmarks",
+    "image": "./images/raffles.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Nature & Parks",
+    "image": "./images/nature.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Shopping",
+    "image": "./images/ion.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Recreation & Leisure",
+    "image": "./images/universal.jpg"
+  }
+]

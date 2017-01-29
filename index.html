@@ -11,51 +11,72 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Include style sheet for cardview -->
     <link rel="stylesheet" href="./css/card.css">
+    <!-- Include style sheet for thumbnail -->
     <link rel="stylesheet" href="./css/thumbnail.css">
+
+
     <script type="text/javascript">
+        //create on click listeners for all categories
+        //upon clicking, store category into localstorage based on the link that was clicked
         $(document).on("pageinit", "#main", function() {
-          $(document).on('click', '#sights-button', function() {
-              // store some data
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.category = "Sights & Landmarks";
-              }
-              // Change page
-              $.mobile.changePage("#attractions");
-          });
 
-          $(document).on('click', '#nature-button', function() {
-              // store some data
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.category = "Nature & Parks";
-              }
-              // Change page
-              $.mobile.changePage("#attractions");
-          });
+            //listener for sights & landmark category
+            $(document).on('click', '#1', function() {
+                //store category in localstorage
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Sights & Landmarks";
+                }
+                //change to attraction page
+                $.mobile.changePage("#attractions");
+            });
 
-          $(document).on('click', '#shopping-button', function() {
-              // store some data
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.category = "Shopping";
-              }
-              // Change page
-              $.mobile.changePage("#attractions");
-          });
+            $(document).on('click', '#2', function() {
 
-          $(document).on('click', '#recreation-button', function() {
-              // store some data
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.category = "Recreation & Leisure";
-              }
-              // Change page
-              $.mobile.changePage("#attractions");
-          });
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Nature & Parks";
+                }
+
+                $.mobile.changePage("#attractions");
+            });
+
+            $(document).on('click', '#3', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Shopping";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
+            });
+
+            $(document).on('click', '#4', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Recreation & Leisure";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
+            });
+        });
+
+        //load attraction data based on category from localStorage
+        $(document).on('pagebeforeshow', '#main', function() {
+            //get attractions JSON and populate list based on category
+            $.getJSON("./json/category.json", function(data) {
+                $.each(data, function(key, val) {
+                    $('#category-cards').append("<div><a href='#' id='" + val.id+ "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>'"+ val.name +"'</h2></div></div></a>");
+
+                });
+            });
         });
 
 
+        //load attraction data based on category from localStorage
         $(document).on('pagebeforeshow', '#attractions', function() {
-            //alert('My name is ' + localStorage.category + ' ' + localStorage.lastname);
+            //empty list to prevent duplicates
             $('#attraction-list').empty();
+            //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
@@ -63,10 +84,8 @@
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
-
                 });
             });
-
         });
     </script>
 </head>
@@ -74,9 +93,8 @@
 <body>
 
     <div data-role="page" id="main">
-
+        <!-- panel for the sliding left menu -->
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-
             <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
                 <li data-icon="delete" style="background-color:#111;">
                     <a href="#" data-rel="close">Home</a>
@@ -89,13 +107,14 @@
                 </li>
             </ul>
         </div>
+        <!-- header to add the menu to trigger sliding menu -->
         <div data-role="header">
             <h1>SG Atttrations</h1>
             <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
         </div>
-
-        <div class="ui-responsive ui-content" data-role="main">
-            <div class="ui-block-a">
+        <!-- cardview for all category -->
+        <div class="ui-responsive ui-content" data-role="main" id="category-cards">
+            <div>
                 <a href="#" id="sights-button">
                     <div class="card">
                         <div class="card-image">
@@ -105,7 +124,7 @@
                     </div>
                 </a>
             </div>
-            <div class="ui-block-b">
+            <div>
                 <a href="#" id="nature-button">
                     <div class="card">
                         <div class="card-image">
@@ -115,7 +134,7 @@
                     </div>
                 </a>
             </div>
-            <div class="ui-block-c">
+            <div>
                 <a href="#" id="shopping-button">
                     <div class="card">
                         <div class="card-image">
@@ -125,7 +144,7 @@
                     </div>
                 </a>
             </div>
-            <div class="ui-block-d">
+            <div>
                 <a href="#" id="recreation-button">
                     <div class="card">
                         <div class="card-image">
