@@ -34,6 +34,15 @@
                 // Change page
                 $.mobile.changePage("#attractions");
             });
+
+            $(document).on('click', '#nature-button', function() {
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.category = "Nature & Parks";
+                }
+                // Change page
+                $.mobile.changePage("#attractions");
+            });
         });
 
         $(document).on('pagebeforeshow', '#attractions', function() {
@@ -77,7 +86,7 @@
         </div>
 
         <div class="ui-responsive ui-content" data-role="main">
-            <div class="ui-block-a" id="test">
+            <div class="ui-block-a">
                 <a href="#" id="sights-button">
                     <div class="card">
                         <div class="card-image">
@@ -88,12 +97,14 @@
                 </a>
             </div>
             <div class="ui-block-b">
+              <a href="#" id="nature-button">
                 <div class="card">
                     <div class="card-image">
                         <img alt="home" src="./images/nature.jpg" />
                         <h2>Nature & Parks</h2>
                     </div>
                 </div>
+              </a>
             </div>
             <div class="ui-block-c">
                 <div class="card">
