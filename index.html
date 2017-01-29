@@ -14,54 +14,44 @@
     <link rel="stylesheet" href="./css/card.css">
     <link rel="stylesheet" href="./css/thumbnail.css">
     <script type="text/javascript">
-        // $(document).ready(function() {
-        //     $.getJSON("./json/attractions.json", function(data) {
-        //         console.log('tesddsdf');
-        //         $.each(data, function(key, val) {
-        //             $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image + "' class='thumbnail'/><h2>" +
-        //                 val.name + "</h2></a></li>");
-        //         });
-        //     });
-        //
-        // });
+        $(document).on("pageinit", "#main", function() {
+          $(document).on('click', '#sights-button', function() {
+              // store some data
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.category = "Sights & Landmarks";
+              }
+              // Change page
+              $.mobile.changePage("#attractions");
+          });
 
-        $(document).on('pagebeforeshow', '#main', function() {
-            $(document).on('click', '#sights-button', function() {
-                // store some data
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.category = "Sights & Landmarks";
-                }
-                // Change page
-                $.mobile.changePage("#attractions");
-            });
+          $(document).on('click', '#nature-button', function() {
+              // store some data
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.category = "Nature & Parks";
+              }
+              // Change page
+              $.mobile.changePage("#attractions");
+          });
 
-            $(document).on('click', '#nature-button', function() {
-                // store some data
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.category = "Nature & Parks";
-                }
-                // Change page
-                $.mobile.changePage("#attractions");
-            });
+          $(document).on('click', '#shopping-button', function() {
+              // store some data
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.category = "Shopping";
+              }
+              // Change page
+              $.mobile.changePage("#attractions");
+          });
 
-            $(document).on('click', '#shopping-button', function() {
-                // store some data
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.category = "Shopping";
-                }
-                // Change page
-                $.mobile.changePage("#attractions");
-            });
-
-            $(document).on('click', '#recreation-button', function() {
-                // store some data
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.category = "Recreation & Leisure";
-                }
-                // Change page
-                $.mobile.changePage("#attractions");
-            });
+          $(document).on('click', '#recreation-button', function() {
+              // store some data
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.category = "Recreation & Leisure";
+              }
+              // Change page
+              $.mobile.changePage("#attractions");
+          });
         });
+
 
         $(document).on('pagebeforeshow', '#attractions', function() {
             //alert('My name is ' + localStorage.category + ' ' + localStorage.lastname);
@@ -166,13 +156,13 @@
             </li>
         </ul>
     </div>
-    <div data-role="header" >
+    <div data-role="header">
         <h1>SG Atttrations</h1>
         <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
     </div>
     <div data-role="main" class="ui-responsive ui-content">
-      <ul data-role="listview" data-inset="true" id="attraction-list" >
-      </ul>
+        <ul data-role="listview" data-inset="true" id="attraction-list">
+        </ul>
     </div>
 
 </div>
