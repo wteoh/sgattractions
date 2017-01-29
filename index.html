@@ -82,7 +82,6 @@
 
 <body>
 
-
     <div data-role="page" id="main">
 
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
@@ -151,6 +150,25 @@
 </body>
 
 <div data-role="page" id="attractions">
+
+  <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+      <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+          <li data-icon="delete" style="background-color:#111;">
+              <a href="#" data-rel="close">Home</a>
+          </li>
+          <li data-filtertext="wai-aria voiceover accessibility screen reader">
+              <a href="../about/accessibility.html">My Internaries</a>
+          </li>
+          <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+              <a href="../content/content-collapsible-set.html">Accordions</a>
+          </li>
+      </ul>
+  </div>
+  <div data-role="header">
+      <h1>SG Atttrations</h1>
+      <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+  </div>
     <ul data-role="listview" data-inset="true" id="attraction-list">
     </ul>
 </div>
