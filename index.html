@@ -119,7 +119,7 @@
                     if (val.id == localStorage.attraction_id)
                     {
                       $('#attraction-image').append("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
-                      break;
+                      return false;
                     }
                 });
             });
