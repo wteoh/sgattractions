@@ -91,7 +91,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='"+ val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                        $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
@@ -107,6 +107,21 @@
                 }
                 // Change page
                 $.mobile.changePage("#attraction-details");
+            });
+        });
+
+
+        //load attraction data based on category from localStorage
+        $(document).on('pagebeforeshow', '#attractions-details', function() {
+            //get attractions JSON and populate list based on category
+            $.getJSON("./json/attractions.json", function(data) {
+                $.each(data, function(key, val) {
+                    if (val.id == localStorage.attraction_id)
+                    {
+                      $('#attraction-image').append("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
+                      break;
+                    }
+                });
             });
         });
     </script>
@@ -192,8 +207,8 @@
     <div class="ui-responsive ui-content" data-role="main">
 
         <div class='card-image' id="attraction-image">
-            <img src="./images/universal.jpg" width="100%" />
-            <h4>universal studios singapore</h4>
+            <!-- <img src="./images/universal.jpg" width="100%" />
+            <h4>universal studios singapore</h4> -->
         </div>
 
 
