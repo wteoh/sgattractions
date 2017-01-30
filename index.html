@@ -70,6 +70,19 @@
             });
         });
 
+        $(document).on("pageinit", "#attraction-details", function() {
+            //listener for sights & landmark category
+            $(document).on('click', 'a', function(event, ui) {
+                var data_id = $(this).attr('id');
+                // store some data
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.attraction_id = data_id;
+                }
+                // Change page
+                $.mobile.changePage("#attraction-details");
+            });
+        });
+
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
@@ -96,32 +109,18 @@
                 });
             });
 
-            //listener for sights & landmark category
-            $(document).on('click', 'a', function(event, ui) {
-                var data_id = $(this).attr('id');
-                // store some data
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.attraction_id = data_id;
-                }
-                // Change page
-                $.mobile.changePage("#attraction-details");
-            });
+
         });
 
 
         //load attraction data based on category from localStorage
-        $(document).on('pageinit', '#attraction-details', function() {
-
-
-
+        $(document).on('pagebeforeshow', '#attraction-details', function() {
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
-                    if (val.id == localStorage.attraction_id)
-                    {
-
-                      $('#attraction-image').html("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
-                      return false;
+                    if (val.id == localStorage.attraction_id) {
+                        $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
+                        return false;
                     }
                 });
             });
