@@ -79,7 +79,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                        $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#attraction-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
@@ -146,4 +146,30 @@
 
 </div>
 
+<div data-role="page" id="attraction-details">
+  <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+      <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+          <li data-icon="delete" style="background-color:#111;">
+              <a href="#" data-rel="close">Home</a>
+          </li>
+          <li data-filtertext="wai-aria voiceover accessibility screen reader">
+              <a href="../about/accessibility.html">My Internaries</a>
+          </li>
+          <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+              <a href="../content/content-collapsible-set.html">Accordions</a>
+          </li>
+      </ul>
+  </div>
+  <div data-role="header">
+      <h1>SG Atttrations</h1>
+      <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+  </div>
+  <div class="ui-content ui-responsive =" data-role="main">
+    <div>
+      <img src="./images/ion.jpg" />
+    </div>
+  </div>
+hello
+</div>
 </html>
