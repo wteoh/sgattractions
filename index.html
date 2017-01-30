@@ -70,8 +70,7 @@
             });
         });
 
-        $(document).on("pageinit", "#main", function() {
-        });
+        $(document).on("pageinit", "#main", function() {});
 
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
@@ -103,15 +102,9 @@
 
         //load attraction data based on category from localStorage
         $(document).on('pagebeforeshow', '#attractions', function() {
-          //get attraction object based on ID
-          $(document).on('click', '#1', function() {
-              //store category in localstorage
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.category = "Sights & Landmarks";
-              }
-              //change to attraction page
-              $.mobile.changePage("#attractions");
-          });
+            $("a").click(function() {
+                alert(this.id);
+            });
         });
     </script>
 </head>
