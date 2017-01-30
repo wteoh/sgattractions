@@ -91,7 +91,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a href='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                        $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='"+ val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
