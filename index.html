@@ -70,8 +70,6 @@
             });
         });
 
-        $(document).on("pageinit", "#main", function() {});
-
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
@@ -114,8 +112,7 @@
         //load attraction data based on category from localStorage
         $(document).on('pagebeforeshow', '#attraction-details', function() {
 
-          // //reset html to prevent overlap
-          //  $("#attraction-image").html("<div class='card-image' id='attraction-image'></div>");
+      
 
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
@@ -123,7 +120,7 @@
                     if (val.id == localStorage.attraction_id)
                     {
 
-                      $('#attraction-image').append("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
+                      $('#attraction-image').html("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
                       return false;
                     }
                 });
