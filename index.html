@@ -100,7 +100,7 @@
 
             //listener for sights & landmark category
             $(document).on('click', 'a', function(event, ui) {
-                var data_id = $(this).data('id');
+                var data_id = $(this).attr('id');
                 // ... fetch the popup's content ...
                 console.log(data_id);
             });
