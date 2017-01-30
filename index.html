@@ -4,7 +4,6 @@
 <head>
     <!-- Include meta tag to ensure proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Include jQuery Mobile stylesheets -->
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <!-- Include the jQuery library -->
@@ -16,8 +15,19 @@
     <!-- Include style sheet for thumbnail -->
     <link rel="stylesheet" href="./css/thumbnail.css">
 
-
     <script type="text/javascript">
+        //method to retrive attraction details based on id
+        function filterBy(id) {
+            $.getJSON("./json/attractions.json", function(data) {
+                $.each(data, function(key, val) {
+                    if (val.id == id) {
+                        return val;
+                        break;
+                    }
+                });
+            });
+        }
+
         //create on click listeners for all categories
         //upon clicking, store category into localstorage based on the link that was clicked
         $(document).on("pageinit", "#main", function() {
@@ -60,6 +70,9 @@
             });
         });
 
+        $(document).on("pageinit", "#main", function() {
+        });
+
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
@@ -79,12 +92,26 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li id='" + key + "' class='ui-li-has-thumb ui-first-child'><a href='#attraction-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                        $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a href='#attraction-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
                 });
             });
+        });
+
+
+        //load attraction data based on category from localStorage
+        $(document).on('pagebeforeshow', '#attractions', function() {
+          //get attraction object based on ID
+          $(document).on('click', '#1', function() {
+              //store category in localstorage
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.category = "Sights & Landmarks";
+              }
+              //change to attraction page
+              $.mobile.changePage("#attractions");
+          });
         });
     </script>
 </head>
@@ -166,30 +193,35 @@
         <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
     </div>
 
-    <div class="ui-responsive ui-content" data-role="main" id="category-cards">
+    <div class="ui-responsive ui-content" data-role="main">
 
-            <div class='card'>
-                <div class='card-image'><img src="./images/universal.jpg" width="100%" />
-                    <h4>universal studios singapore</h4>
-                </div>
-            </div>
+        <div class='card-image' id="attraction-image">
+            <img src="./images/universal.jpg" width="100%" />
+            <h4>universal studios singapore</h4>
+        </div>
+
 
         <ul data-role="listview" data-inset="true" id="attraction-list">
-          <li>
-            <div style="font-size:13px; ">
-              <b>Opening hours: </b>Daily 9am to 10pm
-            </div>
-          </li>
-          <li>
-          <div style="font-size:13px; ">
-            <b>Description</b>
-            <p style="white-space:normal;">
-              asdasdasdasdasdasd
-              sadasdasdsdasdadasdasdasdasdasdasdasdasdadadsasdsadsad
-              asdasdsadsasdasdasdasd
-            </p>
-          </div>
-          </li>
+            <li>
+                <div style="font-size:13px; ">
+                    <b>Opening hours: </b>Daily 9am to 10pm
+                </div>
+            </li>
+
+            <li>
+                <div style="font-size:13px; ">
+                    <b>Address: </b>woodlands ave 5
+                </div>
+            </li>
+            <li>
+
+                <div style="font-size:13px; ">
+                    <b>Description</b>
+                    <p style="white-space:normal;">
+                        asdasdasdasdasdasd sadasdasdsdasdadasdasdasdasdasdasdasdasdadadsasdsadsad asdasdsadsasdasdasdasd
+                    </p>
+                </div>
+            </li>
 
         </ul>
         <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
