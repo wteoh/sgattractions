@@ -70,7 +70,8 @@
             });
         });
 
-        $(document).on("pageinit", "#main", function() {});
+        $(document).on("pageinit", "#main", function() {
+        });
 
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
@@ -101,10 +102,10 @@
 
 
         //load attraction data based on category from localStorage
-        $(document).on('pagebeforeshow', '#attractions', function() {
-            $("a").click(function() {
-                alert(this.id);
-            });
+        $(document).on('pageload', '#attractions', function() {
+          $("a").click(function(){
+    alert(this.id);
+    });
         });
     </script>
 </head>
