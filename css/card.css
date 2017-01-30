@@ -32,11 +32,11 @@
 .card-image .banner {
   height: 50px;
   width: 50px;
-  top: 0px;
-  right: 0px;
+  top: 5px;
+  right: 5px;
   background-position: top right;
   background-repeat: no-repeat;
-  background-image: url('../images/new.png');
+  background-image: url('../images/heart.png');
   position: absolute;
 }
 .card-image h1,

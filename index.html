@@ -64,7 +64,7 @@
         $(document).on('pagebeforeshow', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
-                    $('#category-cards').append("<div><a href='#' id='" + val.id+ "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>"+ val.name +"</h2></div></div></a>");
+                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
 
                 });
             });
@@ -147,31 +147,57 @@
 </div>
 
 <div data-role="page" id="attraction-details">
-  <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
 
-      <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-          <li data-icon="delete" style="background-color:#111;">
-              <a href="#" data-rel="close">Home</a>
-          </li>
-          <li data-filtertext="wai-aria voiceover accessibility screen reader">
-              <a href="../about/accessibility.html">My Internaries</a>
-          </li>
-          <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-              <a href="../content/content-collapsible-set.html">Accordions</a>
-          </li>
-      </ul>
-  </div>
-  <div data-role="header">
-      <h1>SG Atttrations</h1>
-      <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-  </div>
-  <div class="ui-content ui-responsive =" data-role="main">
+        <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+            <li data-icon="delete" style="background-color:#111;">
+                <a href="#" data-rel="close">Home</a>
+            </li>
+            <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                <a href="../about/accessibility.html">My Internaries</a>
+            </li>
+            <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                <a href="../content/content-collapsible-set.html">Accordions</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header">
+        <h1>SG Atttrations</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
     <div class="ui-responsive ui-content" data-role="main" id="category-cards">
-<img src="./images/ion.jpg" style="width: 100%;"/>
-    </div>
+
+            <div class='card'>
+                <div class='card-image'><img src="./images/universal.jpg" width="100%" />
+                    <h4>universal studios singapore</h4>
+                </div>
+            </div>
+
+        <ul data-role="listview" data-inset="true" id="attraction-list">
+          <li>
+            <div style="font-size:13px; ">
+              <b>Opening hours: </b>Daily 9am to 10pm
+            </div>
+          </li>
+          <li>
+          <div style="font-size:13px; ">
+            <b>Description</b>
+            <p style="white-space:normal;">
+              asdasdasdasdasdasd
+              sadasdasdsdasdadasdasdasdasdasdasdasdasdadadsasdsadsad
+              asdasdsadsasdasdasdasd
+            </p>
+          </div>
+          </li>
+
+        </ul>
+        <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
+        <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a>
+        <a href="#" class="ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone">Call</a>
 
     </div>
-  </div>
 
 </div>
+
 </html>
