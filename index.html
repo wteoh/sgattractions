@@ -118,6 +118,8 @@
                 $.each(data, function(key, val) {
                     if (val.id == localStorage.attraction_id)
                     {
+                      //reset html to prevent overlap
+                       $("#attraction-image").html("<div class='card-image' id='attraction-image'></div>");
                       $('#attraction-image').append("<img src='"+ val.image +"' width='100%'/><h4>"+val.name+"</h4>");
                       return false;
                     }
