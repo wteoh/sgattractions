@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Include style sheet for cardview -->
+    <link rel="stylesheet" href="./css/card.css">
+    <!-- Include style sheet for thumbnail -->
+    <link rel="stylesheet" href="./css/thumbnail.css">
+
+    <script type="text/javascript">
+        //method to retrive attraction details based on id
+    
+        //load attraction data based on category from localStorage
+        $(document).on('pagebeforeshow', '#attraction-details', function() {
+            //get attractions JSON and populate list based on category
+            $.getJSON("./json/attractions.json", function(data) {
+                $.each(data, function(key, val) {
+                    if (val.id == localStorage.attraction_id) {
+                        $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
+                        return false;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+  <div data-role="page" id="attraction-details">
+      <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+
+          <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+              <li data-icon="delete" style="background-color:#111;">
+                  <a href="#" data-rel="close">Home</a>
+              </li>
+              <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                  <a href="../about/accessibility.html">My Internaries</a>
+              </li>
+              <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                  <a href="../content/content-collapsible-set.html">Accordions</a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="header">
+          <h1>SG Atttrations</h1>
+          <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+      </div>
+
+      <div class="ui-responsive ui-content" data-role="main">
+
+          <div class='card-image' id="attraction-image">
+              <!-- <img src="./images/universal.jpg" width="100%" />
+              <h4>universal studios singapore</h4> -->
+          </div>
+
+
+          <ul data-role="listview" data-inset="true" id="attraction-list">
+              <li>
+                  <div style="font-size:13px; ">
+                      <b>Opening hours: </b>Daily 9am to 10pm
+                  </div>
+              </li>
+
+              <li>
+                  <div style="font-size:13px; ">
+                      <b>Address: </b>woodlands ave 5
+                  </div>
+              </li>
+              <li>
+
+                  <div style="font-size:13px; ">
+                      <b>Description</b>
+                      <p style="white-space:normal;">
+                          asdasdasdasdasdasd sadasdasdsdasdadasdasdasdasdasdasdasdasdadadsasdsadsad asdasdsadsasdasdasdasd
+                      </p>
+                  </div>
+              </li>
+
+          </ul>
+          <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
+          <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a>
+          <a href="#" class="ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone">Call</a>
+
+      </div>
+
+  </div>
+
+
+</body>
+
+
+
+
+</html>
