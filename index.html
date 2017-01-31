@@ -23,21 +23,21 @@
             // store some data
             if (typeof(Storage) !== "undefined") {
                 //localStorage.category = data_id;
-                localStorage.setItem("category", data_id);
+                localStorage.category = data_id);
             }
             // Change page
-            //$.mobile.changePage("#attractions");
-            window.location.href = "#attractions";
+            $.mobile.changePage("#attractions");
+            //window.location.href = "#attractions";
 
         });
 
         $(document).on('click', 'li', function() {
             if (typeof(Storage) !== "undefined") {
                 //localStorage.attraction_id = $(this).attr("id");
-                localStorage.setItem("attraction_id", $(this).attr("id"));
+                localStorage.attraction_id = $(this).attr("id"));
             }
-            //$.mobile.changePage("#attraction-details");
-            window.location.href = "#attraction-details";
+            $.mobile.changePage("#attraction-details");
+            //window.location.href = "#attraction-details";
         });
 
         //load category data from category JSON and display
@@ -52,13 +52,13 @@
         $(document).on('pagebeforeshow', '#attractions', function() {
             //var category = localStorage.category;
             //empty list to prevent duplicates
-            if (localStorage.getItem("category") != "undefined") {
+            if (localStorage.category != "undefined") {
                 $('#attraction-list').empty();
             }
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
-                    if (val.category == localStorage.getItem("category")) {
+                    if (val.category == localStorage.category) {
                         $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
@@ -73,7 +73,7 @@
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
-                    if (val.id == localStorage.getItem("attraction_id")) {
+                    if (val.id == localStorage.attraction_id) {
                         $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
                         $('#ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
                         $('#address').html("<b>Address: </b>" + val.address);
