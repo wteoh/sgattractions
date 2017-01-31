@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="./css/thumbnail.css">
 
     <script type="text/javascript">
-
         //Load store category into localstorage based on the link that was clicked.
         //redirect to attractions page
         $(document).on("pageinit", "#main", function() {
@@ -30,6 +29,19 @@
                 $.mobile.changePage("#attractions");
             });
 
+        });
+
+        $(document).on("pageinit", "#attractions", function() {
+          //listener for sights & landmark category
+          $(document).on('click', 'a', function(event, ui) {
+              var data_id = $(this).attr('id');
+              // store some data
+              if (typeof(Storage) !== "undefined") {
+                  localStorage.attraction_id = data_id;
+              }
+              // Change page
+              $.mobile.changePage("#attraction-details");
+          });
         });
 
         //load category data from category JSON and display
