@@ -44,7 +44,8 @@
         $(document).on('pagecreate', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
-                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "' width='100%' height='100%'/><h2>" + val.name + "</h2></div></div></a>");
+                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "' width='100%' height='100%'/><h2>" + val.name +
+                        "</h2></div></div></a>");
                 });
             });
         });
@@ -78,6 +79,7 @@
                         $('#ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
                         $('#address').html("<b>Address: </b>" + val.address);
                         $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
+                        $('call').html("<a href=tel:'"+ val.phone +"' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
                         return false;
                     }
                 });
@@ -179,8 +181,12 @@
 
             </ul>
             <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
-            <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a>
-            <a href="#" class="ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone">Call</a>
+            <div id="map">
+                <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a>
+            </div>
+            <div id="call">
+
+            </div>
 
         </div>
 
