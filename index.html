@@ -52,9 +52,8 @@
         $(document).on('pagebeforeshow', '#attractions', function() {
             //var category = localStorage.category;
             //empty list to prevent duplicates
-            if(localStorage.getItem("category") != "undefined")
-            {
-              $('#attraction-list').empty();
+            if (localStorage.getItem("category") != "undefined") {
+                $('#attraction-list').empty();
             }
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
@@ -78,6 +77,7 @@
                         $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
                         $('#ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
                         $('#address').html("<b>Address: </b>" + val.address);
+                        $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.description + "</p>");
                         return false;
                     }
                 });
@@ -161,31 +161,19 @@
         </div>
 
         <div class="ui-responsive ui-content" data-role="main">
-
-            <div class='card-image' id="attraction-image">
-                <!-- <img src="./images/universal.jpg" width="100%" />
-                <h4>universal studios singapore</h4> -->
-            </div>
-
-
+            <div class='card-image' id="attraction-image"></div>
             <ul data-role="listview" data-inset="true" id="detail-list">
                 <li>
-                    <div style="font-size:11px;" id="ophours" width="100%">
-
-                    </div>
+                    <div style="font-size:11px;" id="ophours" width="100%"></div>
                 </li>
 
                 <li>
-                    <div style="font-size:13px;" id="address">
+                    <div style="font-size:11px;" id="address">
                     </div>
                 </li>
                 <li>
 
-                    <div style="font-size:13px; ">
-                        <b>Description</b>
-                        <p style="white-space:normal;">
-                            asdasdasdasdasdasd sadasdasdsdasdadasdasdasdasdasdasdasdasdadadsasdsadsad asdasdsadsasdasdasdasd
-                        </p>
+                    <div style="font-size:13px;" id="description">
                     </div>
                 </li>
 
