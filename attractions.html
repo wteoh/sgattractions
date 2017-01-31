@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
 
-<head>
     <!-- Include meta tag to ensure proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Include jQuery Mobile stylesheets -->
@@ -10,74 +12,13 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- Include style sheet for cardview -->
-    <link rel="stylesheet" href="./css/card.css">
-    <!-- Include style sheet for thumbnail -->
-    <link rel="stylesheet" href="./css/thumbnail.css">
 
+  </head>
 
-</head>
-
-<body>
   <script type="text/javascript">
-
-      // $(document).on("pageinit", "#attractions", function() {
-      //     //listener for sights & landmark category
-      //     $(document).on('click', 'a', function(event, ui) {
-      //         var data_id = $(this).attr('id');
-      //         // store some data
-      //         if (typeof(Storage) !== "undefined") {
-      //             localStorage.attraction_id = data_id;
-      //         }
-      //         // Change page
-      //         $.mobile.changePage("#attraction-details");
-      //     });
-      // });
-
-      //load attraction data based on category from localStorage
-      $(document).on('pagebeforeshow', '#attractions', function() {
-          //empty list to prevent duplicates
-          $('#attraction-list').empty();
-          //get attractions JSON and populate list based on category
-          $.getJSON("./json/attractions.json", function(data) {
-              $.each(data, function(key, val) {
-                  if (val.category == localStorage.category) {
-                      $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
-                          "' class='thumbnail'/><h2>" +
-                          val.name + "</h2></a></li>");
-                  }
-              });
-          });
-      });
-
-
+      
   </script>
-<div data-role="page" id="attractions">
+  <body>
 
-    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-
-        <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-            <li data-icon="delete" style="background-color:#111;">
-                <a href="#" data-rel="close">Home</a>
-            </li>
-            <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                <a href="../about/accessibility.html">My Internaries</a>
-            </li>
-            <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                <a href="../content/content-collapsible-set.html">Accordions</a>
-            </li>
-        </ul>
-    </div>
-    <div data-role="header">
-        <h1>SG Atttrations</h1>
-        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-    </div>
-    <div data-role="main" class="ui-responsive ui-content">
-        <ul data-role="listview" data-inset="true" id="attraction-list">
-        </ul>
-    </div>
-
-</div>
-
-</body>
+  </body>
 </html>
