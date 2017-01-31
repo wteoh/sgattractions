@@ -74,7 +74,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.id == localStorage.attraction_id) {
-                        $('#attraction-image').html("<div clas='card'><img src='" + val.image + "' width='100%' height='100%'/><h4>" + val.name + "</h4></div>");
+                        $('#attraction-image').html("<div class='card card-image'><img src='" + val.image + "' width='100%' height='100%'/><h4>" + val.name + "</h4></div>");
                         $('#ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
                         $('#address').html("<b>Address: </b>" + val.address);
                         $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
