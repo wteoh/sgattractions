@@ -40,7 +40,7 @@
         $(document).on('pagecreate', '#main', function() {
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
-                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
+                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "' width='100%'/><h2>" + val.name + "</h2></div></div></a>");
                 });
             });
         });
