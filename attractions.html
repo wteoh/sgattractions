@@ -15,43 +15,43 @@
     <!-- Include style sheet for thumbnail -->
     <link rel="stylesheet" href="./css/thumbnail.css">
 
-    <script type="text/javascript">
 
-        // $(document).on("pageinit", "#attractions", function() {
-        //     //listener for sights & landmark category
-        //     $(document).on('click', 'a', function(event, ui) {
-        //         var data_id = $(this).attr('id');
-        //         // store some data
-        //         if (typeof(Storage) !== "undefined") {
-        //             localStorage.attraction_id = data_id;
-        //         }
-        //         // Change page
-        //         $.mobile.changePage("#attraction-details");
-        //     });
-        // });
-
-        //load attraction data based on category from localStorage
-        $(document).on('#attractions', function() {
-            //empty list to prevent duplicates
-            $('#attraction-list').empty();
-            //get attractions JSON and populate list based on category
-            $.getJSON("./json/attractions.json", function(data) {
-                $.each(data, function(key, val) {
-                    if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
-                            "' class='thumbnail'/><h2>" +
-                            val.name + "</h2></a></li>");
-                    }
-                });
-            });
-        });
-
-
-    </script>
 </head>
 
 <body>
+  <script type="text/javascript">
 
+      // $(document).on("pageinit", "#attractions", function() {
+      //     //listener for sights & landmark category
+      //     $(document).on('click', 'a', function(event, ui) {
+      //         var data_id = $(this).attr('id');
+      //         // store some data
+      //         if (typeof(Storage) !== "undefined") {
+      //             localStorage.attraction_id = data_id;
+      //         }
+      //         // Change page
+      //         $.mobile.changePage("#attraction-details");
+      //     });
+      // });
+
+      //load attraction data based on category from localStorage
+      $(document).on('pagebeforeshow', '#attractions', function() {
+          //empty list to prevent duplicates
+          $('#attraction-list').empty();
+          //get attractions JSON and populate list based on category
+          $.getJSON("./json/attractions.json", function(data) {
+              $.each(data, function(key, val) {
+                  if (val.category == localStorage.category) {
+                      $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                          "' class='thumbnail'/><h2>" +
+                          val.name + "</h2></a></li>");
+                  }
+              });
+          });
+      });
+
+
+  </script>
 <div data-role="page" id="attractions">
 
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
