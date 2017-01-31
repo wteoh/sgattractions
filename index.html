@@ -26,7 +26,9 @@
                 localStorage.setItem("category", data_id);
             }
             // Change page
-            $.mobile.changePage("#attractions");
+            //$.mobile.changePage("#attractions");
+            window.location.href = "#attractions";
+
         });
 
         $(document).on('click', 'li', function() {
@@ -34,7 +36,8 @@
                 //localStorage.attraction_id = $(this).attr("id");
                 localStorage.setItem("attraction_id", $(this).attr("id"));
             }
-            $.mobile.changePage("#attraction-details");
+            //$.mobile.changePage("#attraction-details");
+            window.location.href = "#attraction-details";
         });
 
         //load category data from category JSON and display
