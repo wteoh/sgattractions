@@ -29,6 +29,13 @@
             $.mobile.changePage("#attractions");
         });
 
+        $('#attraction-list').on('click', 'li', function() {
+            if (typeof(Storage) !== "undefined") {
+                localStorage.attraction_id = $(this).attr("id");;
+            }
+            $.mobile.changePage("#attraction-details");
+        });
+
 
         $(document).on("pageinit", "#main", function() {
             // $(document).on('click', 'a', function(event, ui) {
@@ -52,18 +59,18 @@
             });
         });
 
-        $(document).on("pageinit", "#attractions", function() {
-          //listener for sights & landmark category
-          $(document).on('click', 'a', function(event, ui) {
-              var data_id = $(this).attr('id');
-              // store some data
-              if (typeof(Storage) !== "undefined") {
-                  localStorage.attraction_id = data_id;
-              }
-              // Change page
-              $.mobile.changePage("#attraction-details");
-          });
-        });
+        // $(document).on("pageinit", "#attractions", function() {
+        //     //listener for sights & landmark category
+        //     $(document).on('click', 'a', function(event, ui) {
+        //         var data_id = $(this).attr('id');
+        //         // store some data
+        //         if (typeof(Storage) !== "undefined") {
+        //             localStorage.attraction_id = data_id;
+        //         }
+        //         // Change page
+        //         $.mobile.changePage("#attraction-details");
+        //     });
+        // });
 
         $(document).on('pagebeforeshow', '#attractions', function() {
             //empty list to prevent duplicates
@@ -72,7 +79,7 @@
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
                     if (val.category == localStorage.category) {
-                        $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                        $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
                             "' class='thumbnail'/><h2>" +
                             val.name + "</h2></a></li>");
                     }
