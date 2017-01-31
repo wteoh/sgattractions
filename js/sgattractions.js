@@ -10,7 +10,7 @@ function initialize() {
 
 //Load store category into localstorage based on the link that was clicked.
 //redirect to attractions page
-$(document).on('click', 'a', function(event, ui) {
+$(document).on('click', '#category-cards a', function(event, ui) {
     var data_id = $(this).attr('id');
     // store some data
     if (typeof(Storage) !== "undefined") {
