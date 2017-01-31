@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="./css/thumbnail.css">
 
     <script type="text/javascript">
-        //create on click listeners for all categories
-        //upon clicking, store category into localstorage based on the link that was clicked
+
+        //Load store category into localstorage based on the link that was clicked.
+        //redirect to attractions page
         $(document).on("pageinit", "#main", function() {
             $(document).on('click', 'a', function(event, ui) {
                 var data_id = $(this).attr('id');
@@ -36,7 +37,6 @@
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
                     $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
-
                 });
             });
         });
@@ -72,6 +72,7 @@
 
 <body>
 
+    <!-- MAIN PAGE THAT SHOWS ALL ATTRACTION CATEGORIES -->
     <div data-role="page" id="main">
         <!-- panel for the sliding left menu -->
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
@@ -93,15 +94,13 @@
             <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
         </div>
         <!-- cardview for all category -->
-        <div class="ui-responsive ui-content" data-role="main" id="category-cards">
-
-        </div>
+        <div class="ui-responsive ui-content" data-role="main" id="category-cards"></div>
     </div>
 
+    <!-- ATTRACTIONS PAGE: SHOWS ALL ATTRACTION BASED ON CATEGORY SELECTED  -->
     <div data-role="page" id="attractions">
 
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-
             <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
                 <li data-icon="delete" style="background-color:#111;">
                     <a href="#" data-rel="close">Home</a>
@@ -122,9 +121,9 @@
             <ul data-role="listview" data-inset="true" id="attraction-list">
             </ul>
         </div>
-
     </div>
 
+    <!-- ATTRACTION DETAILS PAGE: DISPLAY DETAILS OF THE SELECTED ATTRACTION  -->
     <div data-role="page" id="attraction-details">
         <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
 
