@@ -32,6 +32,7 @@
         $(document).on('click', 'li', function() {
             if (typeof(Storage) !== "undefined") {
                 localStorage.attraction_id = $(this).attr("id");
+                console.log(localStorage.category);
             }
             $.mobile.changePage("#attraction-details");
         });
