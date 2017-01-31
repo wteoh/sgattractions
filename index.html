@@ -64,6 +64,8 @@
         });
 
         $(document).on('pagebeforeshow', '#attraction-details', function() {
+
+          var x = localStorage.category;
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
