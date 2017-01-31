@@ -31,6 +31,15 @@
 
         });
 
+        //load category data from category JSON and display
+        $(document).on('pagebeforeshow', '#main', function() {
+            $.getJSON("./json/category.json", function(data) {
+                $.each(data, function(key, val) {
+                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
+                });
+            });
+        });
+
         $(document).on("pageinit", "#attractions", function() {
           //listener for sights & landmark category
           $(document).on('click', 'a', function(event, ui) {
@@ -42,15 +51,6 @@
               // Change page
               $.mobile.changePage("#attraction-details");
           });
-        });
-
-        //load category data from category JSON and display
-        $(document).on('pagebeforeshow', '#main', function() {
-            $.getJSON("./json/category.json", function(data) {
-                $.each(data, function(key, val) {
-                    $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
-                });
-            });
         });
 
         $(document).on('pagebeforeshow', '#attractions', function() {
