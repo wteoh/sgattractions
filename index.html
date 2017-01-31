@@ -29,7 +29,7 @@
             $.mobile.changePage("#attractions");
         });
 
-        $('#attraction-list').on('click', 'li', function() {
+        $(document).on('click', 'li', function() {
             if (typeof(Storage) !== "undefined") {
                 localStorage.attraction_id = $(this).attr("id");;
             }
