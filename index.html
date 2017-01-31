@@ -70,7 +70,7 @@
                     if (val.id == localStorage.attraction_id) {
                         $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
                         $('#ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
-
+                        $('#address').html("<b>Address: </b>" + val.address);
                         return false;
                     }
                 });
@@ -169,7 +169,7 @@
                 </li>
 
                 <li>
-                    <div style="font-size:13px; ">
+                    <div style="font-size:13px;" id="address">
                         <b>Address: </b>woodlands ave 5
                     </div>
                 </li>
