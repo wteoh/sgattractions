@@ -69,7 +69,7 @@
                 $.each(data, function(key, val) {
                     if (val.id == localStorage.attraction_id) {
                         $('#attraction-image').html("<img src='" + val.image + "' width='100%'/><h4>" + val.name + "</h4>");
-                        $('ophours').html("<b>Opening Hours: </b>" + val.operatinghours +);
+                        $('ophours').html("<b>Opening Hours: </b>" + val.operatinghours);
 
                         return false;
                     }
