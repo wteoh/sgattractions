@@ -46,21 +46,20 @@
         });
 
         $(document).on('pagecreate', '#attractions', function() {
-            //do no reload if category is not undefined
-            if (localStorage.category != "undefined") {
-                //empty list to prevent duplicates
-                $('#attraction-list').empty();
-                //get attractions JSON and populate list based on category
-                $.getJSON("./json/attractions.json", function(data) {
-                    $.each(data, function(key, val) {
-                        if (val.category == localStorage.category) {
-                            $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
-                                "' class='thumbnail'/><h2>" +
-                                val.name + "</h2></a></li>");
-                        }
-                    });
+
+            //empty list to prevent duplicates
+            $('#attraction-list').empty();
+            //get attractions JSON and populate list based on category
+            $.getJSON("./json/attractions.json", function(data) {
+                $.each(data, function(key, val) {
+                    if (val.category == localStorage.category) {
+                        $('#attraction-list').append("<li id='" + val.id + "' class='ui-li-has-thumb ui-first-child'><a class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                            "' class='thumbnail'/><h2>" +
+                            val.name + "</h2></a></li>");
+                    }
                 });
-            }
+            });
+
         });
 
         $(document).on('pagecreate', '#attraction-details', function() {
