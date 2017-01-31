@@ -38,19 +38,14 @@
 
         //load category data from category JSON and display
         $(document).on('pagebeforeshow', '#main', function() {
-          if(localStorage.loaded == "undefined"){
             $.getJSON("./json/category.json", function(data) {
                 $.each(data, function(key, val) {
                     $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "'/><h2>" + val.name + "</h2></div></div></a>");
                 });
             });
-
-            localStorage.loaded = "1";
-          }
-
         });
 
-        $(document).on('pagebeforeshow', '#attractions', function() {
+        $(document).on('pagecreate', '#attractions', function() {
             //do no reload if category is not undefined
             if (localStorage.category != "undefined") {
                 //empty list to prevent duplicates
