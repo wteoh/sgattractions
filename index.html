@@ -52,7 +52,10 @@
         $(document).on('pagebeforeshow', '#attractions', function() {
             //var category = localStorage.category;
             //empty list to prevent duplicates
-            $('#attraction-list').empty();
+            if(localStorage.getItem("category") != "undefined")
+            {
+              $('#attraction-list').empty();
+            }
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
