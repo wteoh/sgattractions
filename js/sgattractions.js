@@ -1,13 +1,3 @@
-function initialize() {
-    var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
-    var myOptions = {
-        zoom: 15,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-}
-
 //Load store category into localstorage based on the link that was clicked.
 //redirect to attractions page
 $(document).on('click', '#category-cards a', function(event, ui) {
@@ -72,8 +62,43 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#address').html("<b>Address: </b>" + val.address);
                 $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
+                localStorage.lattitude = val.lattitude;
+                localStorage.longtitude = val.longtitude;
                 return false;
             }
         });
+    });
+});
+
+
+$(document).on( "pageinit", function() {
+    $( "#popupMap iframe" )
+        .attr( "width", 0 )
+        .attr( "height", 0 );
+
+    $( "#popupMap iframe" ).contents().find( "#map_canvas" )
+        .css( { "width" : 0, "height" : 0 } );
+
+    $( "#popupMap" ).on({
+        popupbeforeposition: function() {
+            var size = scale( 480, 320, 0, 1 ),
+                w = size.width,
+                h = size.height;
+
+            $( "#popupMap iframe" )
+                .attr( "width", w )
+                .attr( "height", h );
+
+            $( "#popupMap iframe" ).contents().find( "#map_canvas" )
+                .css( { "width": w, "height" : h } );
+        },
+        popupafterclose: function() {
+            $( "#popupMap iframe" )
+                .attr( "width", 0 )
+                .attr( "height", 0 );
+
+            $( "#popupMap iframe" ).contents().find( "#map_canvas" )
+                .css( { "width": 0, "height" : 0 } );
+        }
     });
 });

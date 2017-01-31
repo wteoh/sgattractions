@@ -110,13 +110,16 @@
             </ul>
             <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
             <div id="map">
-                <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a>
+                <div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                    <iframe src="map.html" width="480" height="320" seamless></iframe>
+
+                </div>
+                <!-- <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a> -->
             </div>
             <div id="call"></div>
         </div>
     </div>
-
-    <div id="map_canvas"></div>
 
 </body>
 
