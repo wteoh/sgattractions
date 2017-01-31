@@ -22,7 +22,8 @@
             var data_id = $(this).attr('id');
             // store some data
             if (typeof(Storage) !== "undefined") {
-                localStorage.category = data_id;
+                //localStorage.category = data_id;
+                localStorage.setItem("category", data_id);
             }
             // Change page
             $.mobile.changePage("#attractions");
