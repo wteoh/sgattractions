@@ -62,7 +62,7 @@
 
         });
 
-        $(document).on('pagecreate', '#attraction-details', function() {
+        $(document).on('pagebeforeshow', '#attraction-details', function() {
             //get attractions JSON and populate list based on category
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val) {
