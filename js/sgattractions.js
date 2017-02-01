@@ -55,7 +55,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
-$(document).on('pagebeforeshow', '#attraction-details', function() {
+$(document).on('pageshow', '#attraction-details', function() {
 
     //get attractions JSON and populate list based on category
     $.getJSON("./json/attractions.json", function(data) {
