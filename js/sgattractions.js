@@ -67,7 +67,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
                 $("#lat").val(val.lattitude);
-                $("#long").val(val.lattitude);
+                $("#long").val(val.longtitude);
                 //localStorage.longtitude = val.longtitude;
                 return false;
             }
