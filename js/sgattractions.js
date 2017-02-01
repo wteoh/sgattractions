@@ -66,8 +66,9 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#address').html("<b>Address: </b>" + val.address);
                 $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
-                localStorage.lattitude = val.lattitude;
-                localStorage.longtitude = val.longtitude;
+                $("#lat").val = val.lattitude;
+                $("#long").val = val.lattitude;
+                //localStorage.longtitude = val.longtitude;
                 return false;
             }
         });
@@ -75,11 +76,12 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
 });
 
 $(document).on('pageshow', '#map', function() {
-    var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
+  var lat = $("#lat").val;
+  var long = $("#long").val;
+    var myLatlng = new google.maps.LatLng(lat, long);
     var myOptions = {
         zoom: 15,
         center: myLatlng,
-
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     //google.maps.event.trigger(googlemap, 'resize');
