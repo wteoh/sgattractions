@@ -55,7 +55,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
-$(document).on('pageshow', '#attraction-details', function() {
+$(document).on('pagebeforeshow', '#attraction-details', function() {
 
     //get attractions JSON and populate list based on category
     $.getJSON("./json/attractions.json", function(data) {
@@ -74,7 +74,7 @@ $(document).on('pageshow', '#attraction-details', function() {
     });
 });
 
-$(document).on('pagecreate', '#map', function() {
+$(document).on('pageshow', '#map', function() {
     var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
     var myOptions = {
         zoom: 15,
