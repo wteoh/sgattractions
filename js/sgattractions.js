@@ -23,7 +23,7 @@ $(document).on('click', 'li', function() {
 });
 
 $(document).on('click', '#mapBtn', function(event, ui) {
-  $.mobile.changePage("./map.html");
+  $.mobile.changePage("#map");
 });
 
 //load category data from category JSON and display
