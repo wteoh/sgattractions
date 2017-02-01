@@ -86,6 +86,11 @@ $(document).on('pageshow', '#map', function() {
     }
     //google.maps.event.trigger(googlemap, 'resize');
     var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    // var overlay = new CustomMarker(map.getCenter(), map);
+    // var iw = new google.maps.InfoWindow({content:
+    // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
+    //   iw.open(map, overlay);
+    // })})
 
 
 });
