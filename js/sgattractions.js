@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
     });
 });
 
-function initialize() {
+$(document).on("pageinit", "#map", loaded) {
     var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
     var myOptions = {
         zoom: 15,
@@ -83,4 +83,4 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var map = new google.maps.Map( document.getElementById( "map_canvas" ), myOptions );
-}
+});
