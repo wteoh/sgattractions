@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="./js/itinerary.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <div data-role="page" id="main">
+        <!-- add button with list view -->
+        <a href="index.html" data-role="button" data-icon="plus">Create New Intinerary</a>
+
+        </br/>
+        <ul data-role="listview" data-inset="true" id="itinerary-ul">
+            <li data-role="list-divider">My intinerary</li>
+        </ul>
+    </div>
+    <div data-role="page" id="form">
+      <div data-role="content">
+            <form id="check-user" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
+                <fieldset>
+                    <div data-role="fieldcontain">
+                        <label for="username">Itinerary Name:</label>
+                        <input type="text" value="" name="username" id="username"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="password">Start Date:</label>
+                        <input type="date" value="" name="password" id="password"/>
+                    </div>
+                    <input type="button" data-theme="b" name="submit" id="submit" value="Submit">
+                </fieldset>
+            </form>
+        </div>
+
+        <div data-role="page" id="form">
+          <div data-role="content">
+                <form id="check-user" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
+                    <fieldset>
+                        <div data-role="fieldcontain">
+                            <label for="name">Trip Name:</label>
+                            <input type="text" value="" name="name" id="name"/>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="startdate">Start Date:</label>
+                            <input type="date" value="" name="startdate" id="startdate"/>
+                        </div>
+
+                        <div data-role="fieldcontain">
+                            <label for="enddate">End Date:</label>
+                            <input type="date" value="" name="enddate" id="enddate"/>
+                        </div>
+
+                        <input type="button" data-theme="b" name="submit" id="submit" value="Submit">
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
