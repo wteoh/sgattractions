@@ -12,7 +12,7 @@ $(document).on('pagebeforeshow', '#main', function() {
    itinerary = {};
  }
 
-  if(itinerary === null)
+  if(jQuery.isEmptyObject(itinerary))
   {
     $('#itinerary-ul').append("<li>No Trip Created</li>");
   }
