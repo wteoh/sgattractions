@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/card.css">
     <!-- Include style sheet for thumbnail -->
     <link rel="stylesheet" href="./css/thumbnail.css">
+
     <script src="./js/sgattractions.js" charset="utf-8"></script>
 </head>
 
@@ -108,14 +109,13 @@
 
             </ul>
             <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-plus">Add to Internary</a>
-            <div id="map">
-                <div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
-                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                    <iframe src="map.html" width="480" height="320" seamless></iframe>
 
-                </div>
-                <!-- <a href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a> -->
+            <div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <iframe src="map.html" width="480" height="320" seamless></iframe>
             </div>
+            <a href="#popupMap" data-rel="popup" data-position-to="window" role="button" data-inline="true" data-corners="true" data-shadow="true" data-iconshadow="true" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-navigation">Find on map</a> 
+
             <div id="call"></div>
         </div>
     </div>
