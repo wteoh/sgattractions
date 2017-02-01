@@ -91,6 +91,7 @@ $(document).on('pageshow', '#map', function() {
     // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
     //   iw.open(map, overlay);
     // })})
+    google.maps.event.trigger(map, "resize");
 
 
 });
