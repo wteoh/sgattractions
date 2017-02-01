@@ -4,20 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Map</title>
-    <script>
-        $(document).on('pageinit', function() {
-
-            var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
-            var myOptions = {
-                zoom: 15,
-                center: myLatlng,
-
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-        });
-    </script>
+    <script src="./js/sgattractions.js" charset="utf-8"></script>
     <script src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyDflfFbfSt7z998rQsTMGnbQCKuTu0htyA"></script>
     <style>
         html {
