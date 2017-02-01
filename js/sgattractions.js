@@ -82,6 +82,7 @@ $(document).on('pagebeforeshow', '#map', function() {
 
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
+   $('#map_canvas').css("height", "400px");
+    google.maps.event.trigger(googlemap, 'resize');
     var map = new google.maps.Map( document.getElementById( "map_canvas" ), myOptions );
 });
