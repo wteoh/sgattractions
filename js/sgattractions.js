@@ -93,5 +93,4 @@ $(document).on('pageshow', '#map', function() {
     // })})
     google.maps.event.trigger(map, "resize");
 
-
 });
