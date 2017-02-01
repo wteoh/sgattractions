@@ -95,7 +95,7 @@ $(document).on('pageshow', '#map', function() {
     var marker = new google.maps.Marker({
          position: myLatLng,
          map: map,
-         title: ''
+         title: ' '
        });
     google.maps.event.trigger(map, "resize");
 
