@@ -78,10 +78,11 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
 $(document).on('pageshow', '#map', function() {
     var lat = $("#lat").val();
     var long = $("#long").val();
-    var myLatlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+    //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
+    var myLatLng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
     var myOptions = {
         zoom: 15,
-        center: myLatlng,
+        center: myLatLng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     //google.maps.event.trigger(googlemap, 'resize');
