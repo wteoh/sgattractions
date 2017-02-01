@@ -23,7 +23,7 @@ $(document).on('click', 'li', function() {
 });
 
 $(document).on('click', '#mapBtn', function(event, ui) {
-  $.mobile.changePage("#map");
+    $.mobile.changePage("#map");
 });
 
 //load category data from category JSON and display
@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
     });
 });
 
-$(document).on('pagebeforeshow', '#map', function() {
+$(document).on('pageinit', '#map', function() {
     var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
     var myOptions = {
         zoom: 15,
@@ -82,8 +82,9 @@ $(document).on('pagebeforeshow', '#map', function() {
 
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-   $('#map_canvas').css("height", "400px");
+    $('#map_canvas').css("height", "400px");
     //google.maps.event.trigger(googlemap, 'resize');
-    var map = new google.maps.Map( document.getElementById( "map_canvas" ), myOptions );
-     google.maps.event.trigger(map, 'resize');
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
 });
