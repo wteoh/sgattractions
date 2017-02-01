@@ -1,7 +1,7 @@
 
 
 
-$(document).on('pageinit', '#map', function() {
+$(document).on('pagecreate', '#map', function() {
     var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
     var myOptions = {
         zoom: 15,
