@@ -91,6 +91,12 @@ $(document).on('pageshow', '#map', function() {
     // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
     //   iw.open(map, overlay);
     // })})
+
+    var marker = new google.maps.Marker({
+         position: myLatLng,
+         map: map,
+         title: ''
+       });
     google.maps.event.trigger(map, "resize");
 
 });
