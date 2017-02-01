@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
     });
 });
 
-$(document).on('pagecreate', '#map', function() {
+$(document).on('pagebeforeshow', '#map', function() {
     var myLatlng = new google.maps.LatLng(51.520838, -0.140261);
     var myOptions = {
         zoom: 15,
