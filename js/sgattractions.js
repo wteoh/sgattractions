@@ -52,7 +52,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
 });
 
 
-$('#attraction-list').on('click', 'li a', function() {
+$('#attraction-list').on('click', 'a', function() {
     // if (typeof(Storage) !== "undefined") {
     //     //localStorage.attraction_id = $(this).attr("id");
     //     localStorage.attraction_id = $(this).attr("id");
