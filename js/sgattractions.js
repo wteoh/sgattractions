@@ -74,36 +74,10 @@ $(document).on('pagecreate', '#main', function() {
     });
 });
 
-
-
-
-
 $(document).on('pageshow', '#map', function() {
+  //get selected attraction json
     var attraction = JSON.parse(localStorage.attraction);
-    // //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
-    // var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
-    // var myOptions = {
-    //     zoom: 15,
-    //     center: myLatLng,
-    //     mapTypeId: google.maps.MapTypeId.ROADMAP
-    // }
-    // //google.maps.event.trigger(googlemap, 'resize');
-    // var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    // // var overlay = new CustomMarker(map.getCenter(), map);
-    // // var iw = new google.maps.InfoWindow({content:
-    // // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
-    // //   iw.open(map, overlay);
-    // // })})
-    //
-    // var marker = new google.maps.Marker({
-    //     position: myLatLng,
-    //     map: map,
-    //     title: ' '
-    // });
-    //
-    // var infowindow = new google.maps.InfoWindow({
-    //       content: localStorage.attraction
-    // });
+
     var map = new GMaps({
         div: '#map_canvas',
         lat: parseFloat(attraction.lattitude),
@@ -118,9 +92,6 @@ $(document).on('pageshow', '#map', function() {
             content: "<h3>" + attraction.name + "</h3><p class='address'>Address: " + attraction.address + ", Tel: " + attraction.phone + "</p>"
         },
     });
+    //trigger click to show infoWindow
     google.maps.event.trigger(map.markers[0], 'click');
-
-
-    //google.maps.event.trigger(map, "resize");
-
 });
