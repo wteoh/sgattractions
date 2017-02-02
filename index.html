@@ -12,7 +12,6 @@
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDflfFbfSt7z998rQsTMGnbQCKuTu0htyA"></script>
     <!-- Include style sheet for cardview -->
-
     <link rel="stylesheet" href="./css/card.css">
     <!-- Include style sheet for thumbnail -->
     <link rel="stylesheet" href="./css/thumbnail.css">
@@ -23,27 +22,29 @@
 
     <!-- MAIN PAGE THAT SHOWS ALL ATTRACTION CATEGORIES -->
     <div data-role="page" id="main">
-        <div data-role="navbar" data-iconpos="top">
-            <ul>
-                <li><a href="a.html" data-icon="home" >Home</a></li>
-                <li><a href="b.html" data-icon="star">Attractions</a></li>
-                <li><a href="b.html" data-icon="bullets">My Trips</a></li>
-            </ul>
+        <div data-role="header" data-position="fixed" data-iconpos="top">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="c.html" data-icon="home">Home</a></li>
+                    <li><a href="c.html" data-icon="bullets">My Trips</a></li>
+                    <li><a href="a.html" data-icon="star">Attractions</a></li>
+                    <li><a href="b.html" data-icon="info">About</a></li>
+                </ul>
+            </div>
         </div>
-        <!-- /navbar -->
         <!-- cardview for all category -->
         <div class="ui-responsive ui-content" data-role="main" id="category-cards"></div>
     </div>
 
     <!-- ATTRACTIONS PAGE: SHOWS ALL ATTRACTION BASED ON CATEGORY SELECTED - -->
     <div data-role="page" id="attractions">
-      <div data-role="navbar" data-iconpos="top">
-          <ul>
-              <li><a href="a.html" data-icon="home" >Home</a></li>
-              <li><a href="b.html" data-icon="star">Attractions</a></li>
-              <li><a href="b.html" data-icon="bullets">My Trips</a></li>
-          </ul>
-      </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="a.html" data-icon="home">Home</a></li>
+                <li><a href="b.html" data-icon="star">Attractions</a></li>
+                <li><a href="b.html" data-icon="bullets">My Trips</a></li>
+            </ul>
+        </div>
         <div data-role="main" class="ui-responsive ui-content">
             <ul data-role="listview" data-inset="true" id="attraction-list">
             </ul>
@@ -52,13 +53,13 @@
 
     <!-- ATTRACTION DETAILS PAGE: DISPLAY DETAILS OF THE SELECTED ATTRACTION  -->
     <div data-role="page" id="attraction-details">
-      <div data-role="navbar" data-iconpos="top">
-          <ul>
-              <li><a href="a.html" data-icon="home" >Home</a></li>
-              <li><a href="b.html" data-icon="star">Attractions</a></li>
-              <li><a href="b.html" data-icon="bullets">My Trips</a></li>
-          </ul>
-      </div>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="a.html" data-icon="home">Home</a></li>
+                <li><a href="b.html" data-icon="star">Attractions</a></li>
+                <li><a href="b.html" data-icon="bullets">My Trips</a></li>
+            </ul>
+        </div>
         <div class="ui-responsive ui-content" data-role="main">
             <div class='card-image' id="attraction-image"></div>
 
@@ -86,37 +87,7 @@
         </div>
     </div>
 
-    <div data-role="page" id="map">
-      <div data-role="navbar" data-iconpos="top">
-          <ul>
-              <li><a href="a.html" data-icon="home" >Home</a></li>
-              <li><a href="b.html" data-icon="star">Attractions</a></li>
-              <li><a href="b.html" data-icon="bullets">My Trips</a></li>
-          </ul>
-      </div>
-        <!-- panel for the sliding left menu -->
-        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-                <li data-icon="delete" style="background-color:#111;">
-                    <a href="#" data-rel="close">Home</a>
-                </li>
-                <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                    <a href="../about/accessibility.html">My Internaries</a>
-                </li>
-                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                    <a href="../content/content-collapsible-set.html">Accordions</a>
-                </li>
-            </ul>
-        </div>
-        <!-- header to add the menu to trigger sliding menu -->
-        <div data-role="header">
-            <h1>SG Atttrations</h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-        </div>
-        <div id="map_canvas" style="position:absolute; width:100%; height:100%;" role="main" class="ui-responsive ui-content"></div>
-    </div>
-    <input type="hidden" id="lat" />
-    <input type="hidden" id="long" />
+
 </body>
 
 </html>

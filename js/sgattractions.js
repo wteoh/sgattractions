@@ -7,46 +7,10 @@ $(document).on('click', '#category-cards a', function(event, ui) {
         //localStorage.category = data_id;
         localStorage.category = data_id;
     }
-
-    setTimeout(function() {
-        $.mobile.changePage("#attractions");
-    }, 200);
-
-    // Change page
-
-    //window.location.href = "#attractions";
-
+    $.mobile.changePage("#attractions");
 });
 
-$(document).on('click', 'li', function() {
-    if (typeof(Storage) !== "undefined") {
-        //localStorage.attraction_id = $(this).attr("id");
-        localStorage.attraction_id = $(this).attr("id");
-    }
-
-    setTimeout(function() {
-          $.mobile.changePage("#attraction-details");
-    }, 200);
-
-
-
-    //window.location.href = "#attraction-details";
-});
-
-$(document).on('click', '#mapBtn', function(event, ui) {
-    $.mobile.changePage("#map");
-});
-
-//load category data from category JSON and display
-$(document).on('pagecreate', '#main', function() {
-    $.getJSON("./json/category.json", function(data) {
-        $.each(data, function(key, val) {
-            $('#category-cards').append("<div><a href='#' id='" + val.id + "'><div class='card'><div class='card-image'><img src='" + val.image + "' width='100%' height='100%'/><h2>" + val.name +
-                "</h2></div></div></a>");
-        });
-    });
-});
-
+//get all attractions based on category selected
 $(document).on('pagebeforeshow', '#attractions', function() {
     //var category = localStorage.category;
     //empty list to prevent duplicates
@@ -66,6 +30,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
+//get attraction details based on attraction selected
 $(document).on('pagebeforeshow', '#attraction-details', function() {
 
     //get attractions JSON and populate list based on category
@@ -85,6 +50,40 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
         });
     });
 });
+
+
+$(document).on('click', 'li', function() {
+    if (typeof(Storage) !== "undefined") {
+        //localStorage.attraction_id = $(this).attr("id");
+        localStorage.attraction_id = $(this).attr("id");
+    }
+
+    setTimeout(function() {
+        $.mobile.changePage("#attraction-details");
+    }, 200);
+
+
+
+    //window.location.href = "#attraction-details";
+});
+
+$(document).on('click', '#mapBtn', function(event, ui) {
+    $.mobile.changePage("#map");
+});
+
+//load category data from category JSON and display
+$(document).on('pagecreate', '#main', function() {
+    $.getJSON("./json/category.json", function(data) {
+        $.each(data, function(key, val) {
+            $('#category-cards').append("<div><a href='#' id='" + val.id + "' data-transition='slidedown'><div class='card'><div class='card-image'><img src='" + val.image + "' width='100%' height='100%'/><h2>" + val.name +
+                "</h2></div></div></a>");
+        });
+    });
+});
+
+
+
+
 
 $(document).on('pageshow', '#map', function() {
     var lat = $("#lat").val();
