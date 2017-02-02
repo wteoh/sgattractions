@@ -105,7 +105,7 @@ $(document).on('pageshow', '#map', function() {
     });
 
     var infowindow = new google.maps.InfoWindow({
-          content: localStorage.attraction;
+          content: localStorage.attraction
     });
 
     google.maps.event.trigger(map, "resize");
