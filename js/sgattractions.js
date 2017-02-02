@@ -42,9 +42,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#address').html("<b>Address: </b>" + val.address);
                 $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
-                localStorage.lat = val.lattitude;
-                localStorage.long = val.longtitute;
-                localStorage.attraction = val.name;
+                localStorage.attraction = val;
                 return true;
             }
         });
@@ -81,33 +79,45 @@ $(document).on('pagecreate', '#main', function() {
 
 
 $(document).on('pageshow', '#map', function() {
-    var lat = localStorage.lat;
-    var long = localStorage.long;
-    //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
-    var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
-    var myOptions = {
-        zoom: 15,
-        center: myLatLng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    //google.maps.event.trigger(googlemap, 'resize');
-    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    // var overlay = new CustomMarker(map.getCenter(), map);
-    // var iw = new google.maps.InfoWindow({content:
-    // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
-    //   iw.open(map, overlay);
-    // })})
-
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: ' '
+    var attraction = localStorage.attraction;
+    // //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
+    // var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
+    // var myOptions = {
+    //     zoom: 15,
+    //     center: myLatLng,
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    // }
+    // //google.maps.event.trigger(googlemap, 'resize');
+    // var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    // // var overlay = new CustomMarker(map.getCenter(), map);
+    // // var iw = new google.maps.InfoWindow({content:
+    // // "Locate Me", pixelOffset:new google.maps.event.addListener(overlay, "click", function() {
+    // //   iw.open(map, overlay);
+    // // })})
+    //
+    // var marker = new google.maps.Marker({
+    //     position: myLatLng,
+    //     map: map,
+    //     title: ' '
+    // });
+    //
+    // var infowindow = new google.maps.InfoWindow({
+    //       content: localStorage.attraction
+    // });
+    var map = new GMaps({
+        div: '#map_canvas',
+        lat: parseFloat(attraction.lattitude),
+        lng: parseFloat(attraction.longtitute),
+        zoom: 15
     });
 
-    var infowindow = new google.maps.InfoWindow({
-          content: localStorage.attraction
+    map.addMarker({
+        lat: parseFloat(lat),
+        lng: parseFloat(long),
+        infoWindow: {
+            content: "<h3>'" + attraction.name + "'</h3><p class='address'>Address: '" + attraction.address + "', Tel: '" + attraction.phone+ "'</p>"
+        },
     });
-
     google.maps.event.trigger(map.markers[0], 'click');
 
 
