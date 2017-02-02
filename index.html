@@ -23,25 +23,7 @@
 
     <!-- MAIN PAGE THAT SHOWS ALL ATTRACTION CATEGORIES -->
     <div data-role="page" id="main">
-        <!-- panel for the sliding left menu -->
-        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-                <li data-icon="delete" style="background-color:#111;">
-                    <a href="#"  data-rel="close">Home</a>
-                </li>
-                <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                    <a href="./itinerary.html" rel="external">My Itineraries</a>
-                </li>
-                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                    <a href="../content/content-collapsible-set.html">Accordions</a>
-                </li>
-            </ul>
-        </div>
-        <!-- header to add the menu to trigger sliding menu -->
-        <div data-role="header">
-            <h1>SG Atttrations</h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-        </div>
+
         <!-- cardview for all category -->
         <div class="ui-responsive ui-content" data-role="main" id="category-cards"></div>
     </div>
@@ -49,23 +31,6 @@
     <!-- ATTRACTIONS PAGE: SHOWS ALL ATTRACTION BASED ON CATEGORY SELECTED - -->
     <div data-role="page" id="attractions">
 
-        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-                <li data-icon="delete" style="background-color:#111;">
-                    <a href="#" data-rel="close">Home</a>
-                </li>
-                <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                    <a href="../about/accessibility.html">My Internaries</a>
-                </li>
-                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                    <a href="../content/content-collapsible-set.html">Accordions</a>
-                </li>
-            </ul>
-        </div>
-        <div data-role="header">
-            <h1>SG Atttrations</h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-        </div>
         <div data-role="main" class="ui-responsive ui-content">
             <ul data-role="listview" data-inset="true" id="attraction-list">
             </ul>
@@ -74,23 +39,7 @@
 
     <!-- ATTRACTION DETAILS PAGE: DISPLAY DETAILS OF THE SELECTED ATTRACTION  -->
     <div data-role="page" id="attraction-details">
-        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-                <li data-icon="delete" style="background-color:#111;">
-                    <a href="#" data-rel="close">Home</a>
-                </li>
-                <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                    <a href="../about/accessibility.html">My Internaries</a>
-                </li>
-                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                    <a href="../content/content-collapsible-set.html">Accordions</a>
-                </li>
-            </ul>
-        </div>
-        <div data-role="header">
-            <h1>SG Atttrations</h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-        </div>
+
         <div class="ui-responsive ui-content" data-role="main">
             <div class='card-image' id="attraction-image"></div>
 
