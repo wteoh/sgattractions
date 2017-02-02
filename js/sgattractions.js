@@ -44,7 +44,8 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
                 localStorage.lat = val.lattitude;
                 localStorage.long = val.longtitute;
-                return false;
+                localStorage.attraction = val.name;
+                return true;
             }
         });
     });
@@ -81,7 +82,7 @@ $(document).on('pagecreate', '#main', function() {
 
 $(document).on('pageshow', '#map', function() {
     var lat = localStorage.lat;
-    var long = localStorage.long
+    var long = localStorage.long;
     //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
     var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
     var myOptions = {
@@ -102,6 +103,11 @@ $(document).on('pageshow', '#map', function() {
         map: map,
         title: ' '
     });
+
+    var infowindow = new google.maps.InfoWindow({
+          content: localStorage.attraction;
+    });
+
     google.maps.event.trigger(map, "resize");
 
 });
