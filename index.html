@@ -23,7 +23,14 @@
 
     <!-- MAIN PAGE THAT SHOWS ALL ATTRACTION CATEGORIES -->
     <div data-role="page" id="main">
-
+        <div data-role="navbar">
+            <ul>
+                <li><a href="a.html">Home</a></li>
+                <li><a href="b.html">Attractions</a></li>
+                <li><a href="b.html">My Trips</a></li>
+            </ul>
+        </div>
+        <!-- /navbar -->
         <!-- cardview for all category -->
         <div class="ui-responsive ui-content" data-role="main" id="category-cards"></div>
     </div>
@@ -39,7 +46,13 @@
 
     <!-- ATTRACTION DETAILS PAGE: DISPLAY DETAILS OF THE SELECTED ATTRACTION  -->
     <div data-role="page" id="attraction-details">
-
+      <div data-role="navbar">
+          <ul>
+              <li><a href="a.html">Home</a></li>
+              <li><a href="b.html">Attractions</a></li>
+              <li><a href="b.html">My Trips</a></li>
+          </ul>
+      </div>
         <div class="ui-responsive ui-content" data-role="main">
             <div class='card-image' id="attraction-image"></div>
 
@@ -68,26 +81,32 @@
     </div>
 
     <div data-role="page" id="map">
-
-      <!-- panel for the sliding left menu -->
-      <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-          <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-              <li data-icon="delete" style="background-color:#111;">
-                  <a href="#" data-rel="close">Home</a>
-              </li>
-              <li data-filtertext="wai-aria voiceover accessibility screen reader">
-                  <a href="../about/accessibility.html">My Internaries</a>
-              </li>
-              <li data-filtertext="accordions collapsible set collapsible-set collapsed">
-                  <a href="../content/content-collapsible-set.html">Accordions</a>
-              </li>
+      <div data-role="navbar">
+          <ul>
+              <li><a href="a.html">Home</a></li>
+              <li><a href="b.html">Attractions</a></li>
+              <li><a href="b.html">My Trips</a></li>
           </ul>
       </div>
-      <!-- header to add the menu to trigger sliding menu -->
-      <div data-role="header">
-          <h1>SG Atttrations</h1>
-          <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-      </div>
+        <!-- panel for the sliding left menu -->
+        <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+            <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+                <li data-icon="delete" style="background-color:#111;">
+                    <a href="#" data-rel="close">Home</a>
+                </li>
+                <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                    <a href="../about/accessibility.html">My Internaries</a>
+                </li>
+                <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                    <a href="../content/content-collapsible-set.html">Accordions</a>
+                </li>
+            </ul>
+        </div>
+        <!-- header to add the menu to trigger sliding menu -->
+        <div data-role="header">
+            <h1>SG Atttrations</h1>
+            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        </div>
         <div id="map_canvas" style="position:absolute; width:100%; height:100%;" role="main" class="ui-responsive ui-content"></div>
     </div>
     <input type="hidden" id="lat" />
