@@ -89,13 +89,16 @@
     </div>
 
     <div data-role="page" id="map">
-        <div data-role="navbar" data-iconpos="top" data-position="fixed">
-            <ul>
-                <li><a href="a.html" data-icon="home">Home</a></li>
-                <li><a href="b.html" data-icon="star">Attractions</a></li>
-                <li><a href="b.html" data-icon="bullets">My Trips</a></li>
-            </ul>
-        </div>
+      <div data-role="header" data-position="fixed" data-iconpos="top">
+          <div data-role="navbar">
+              <ul>
+                  <li><a href="#main" data-icon="home">Home</a></li>
+                  <li><a href="./itinerary.html" rel="external" data-icon="bullets">My Trips</a></li>
+                  <li><a href="#attractions" data-icon="star">Attractions</a></li>
+                  <li><a href="#about" data-icon="info">About</a></li>
+              </ul>
+          </div>
+      </div>
 
         <div id="map_canvas" style="position:absolute; width:100%; height:100%;" role="main" class="ui-responsive ui-content"></div>
     </div>
