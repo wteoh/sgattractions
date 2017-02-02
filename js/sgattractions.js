@@ -108,6 +108,9 @@ $(document).on('pageshow', '#map', function() {
           content: localStorage.attraction
     });
 
-    google.maps.event.trigger(map, "resize");
+    google.maps.event.trigger(map.markers[0], 'click');
+
+
+    //google.maps.event.trigger(map, "resize");
 
 });
