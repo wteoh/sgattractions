@@ -7,8 +7,13 @@ $(document).on('click', '#category-cards a', function(event, ui) {
         //localStorage.category = data_id;
         localStorage.category = data_id;
     }
+
+    setTimeout(function() {
+        $.mobile.changePage("#attractions");
+    }, 200);
+
     // Change page
-    $.mobile.changePage("#attractions");
+
     //window.location.href = "#attractions";
 
 });
@@ -18,7 +23,13 @@ $(document).on('click', 'li', function() {
         //localStorage.attraction_id = $(this).attr("id");
         localStorage.attraction_id = $(this).attr("id");
     }
-    $.mobile.changePage("#attraction-details");
+
+    setTimeout(function() {
+          $.mobile.changePage("#attraction-details");
+    }, 200);
+
+
+
     //window.location.href = "#attraction-details";
 });
 
@@ -79,7 +90,7 @@ $(document).on('pageshow', '#map', function() {
     var lat = $("#lat").val();
     var long = $("#long").val();
     //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
-    var myLatLng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+    var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
     var myOptions = {
         zoom: 15,
         center: myLatLng,
@@ -94,10 +105,10 @@ $(document).on('pageshow', '#map', function() {
     // })})
 
     var marker = new google.maps.Marker({
-         position: myLatLng,
-         map: map,
-         title: ' '
-       });
+        position: myLatLng,
+        map: map,
+        title: ' '
+    });
     google.maps.event.trigger(map, "resize");
 
 });
