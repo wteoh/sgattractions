@@ -42,7 +42,7 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
                 $('#address').html("<b>Address: </b>" + val.address);
                 $('#description').html("<b>Description: </b><p style='white-space:normal;'>" + val.desc + "</p>");
                 $('#call').html("<a href=tel:'" + val.phone + "' class='ui-btn ui-shadow ui-shadow ui-btn-icon-left ui-icon-phone' data-role='button' rel='external'>Call</a>");
-                localStorage.attraction = val;
+                localStorage.attraction = JSON.stringify(val);
                 return true;
             }
         });
@@ -79,7 +79,7 @@ $(document).on('pagecreate', '#main', function() {
 
 
 $(document).on('pageshow', '#map', function() {
-    var attraction = localStorage.attraction;
+    var attraction = JSON.parse(localStorage.attraction);
     // //var myLatLng = {lat: parseFloat(lat), lng: parseFloat(long)};
     // var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(long));
     // var myOptions = {
