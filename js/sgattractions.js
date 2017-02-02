@@ -112,10 +112,10 @@ $(document).on('pageshow', '#map', function() {
     });
 
     map.addMarker({
-        lat: parseFloat(lat),
-        lng: parseFloat(long),
+        lat: parseFloat(attraction.lattitude),
+        lng: parseFloat(attraction.longtitute),
         infoWindow: {
-            content: "<h3>'" + attraction.name + "'</h3><p class='address'>Address: '" + attraction.address + "', Tel: '" + attraction.phone+ "'</p>"
+            content: "<h3>'" + attraction.name + "'</h3><p class='address'>Address: '" + attraction.address + "', Tel: '" + attraction.phone + "'</p>"
         },
     });
     google.maps.event.trigger(map.markers[0], 'click');
