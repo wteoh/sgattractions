@@ -52,19 +52,18 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
 });
 
 
-$(document).on('click', 'li', function() {
-    if (typeof(Storage) !== "undefined") {
-        //localStorage.attraction_id = $(this).attr("id");
-        localStorage.attraction_id = $(this).attr("id");
-    }
-
-    setTimeout(function() {
-        $.mobile.changePage("#attraction-details");
-    }, 200);
-
-
-
-    //window.location.href = "#attraction-details";
+$('#attraction-list').on('click', 'li', function() {
+    // if (typeof(Storage) !== "undefined") {
+    //     //localStorage.attraction_id = $(this).attr("id");
+    //     localStorage.attraction_id = $(this).attr("id");
+    // }
+    //
+    // setTimeout(function() {
+    //     $.mobile.changePage("#attraction-details");
+    // }, 200);
+    //
+    // window.location.href = "#attraction-details";
+    console.log("asdads");
 });
 
 $(document).on('click', '#mapBtn', function(event, ui) {
