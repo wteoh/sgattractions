@@ -23,6 +23,17 @@
 <body>
 
     <div data-role="page" id="main">
+        <div data-role="footer" data-position="fixed" data-iconpos="top">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#main" data-icon="home">Home</a></li>
+                    <li><a href="./itinerary.html" rel="external" data-icon="bullets">My Trips</a></li>
+                    <li><a href="#all_attractions_page" data-icon="star">Explore</a></li>
+                    <li><a href="#about" data-icon="info">About</a></li>
+                </ul>
+            </div>
+        </div>
+
         <div data-role="content">
             <!-- add button with list view -->
             <a href="#form" data-role="button" data-icon="plus" data-rel="popup" data-position-to="window" data-transition="pop">Create New Intinerary</a>
@@ -51,7 +62,22 @@
 
     </div>
 
+    <div data-role="page" id="tripdetails">
+        <div data-role="footer" data-position="fixed" data-iconpos="top">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#main" data-icon="home">Home</a></li>
+                    <li><a href="./itinerary.html" rel="external" data-icon="bullets">My Trips</a></li>
+                    <li><a href="#all_attractions_page" data-icon="star">Explore</a></li>
+                    <li><a href="#about" data-icon="info">About</a></li>
+                </ul>
+            </div>
+        </div>
 
+        <ul data-role="listview" data-corners="false" data-inset="true" id="tripdetails-ul">
+            <li data-role="list-divider">My intinerary</li>
+        </ul>
+    </div>
 
 
 </body>

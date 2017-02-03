@@ -67,6 +67,14 @@ $(document).on('pagebeforeshow', '#main', function() {
 
 });
 
+//retrieve all trip detai
+$(document).on('pagebeforeshow', '#tripdetails', function() {
+  //retrieve number of days
+
+
+  //retrieve attractions saved for the days
+});
+
 $(document).on('pageinit', '#form', function() {
     $(document).on('click', '#submit', function() {
         //check if itinerary json file exist
