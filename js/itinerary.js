@@ -35,6 +35,7 @@ $(document).on('click', '#btnCreate', function() {
             });
             localStorage.itinerary = JSON.stringify(trip);
             location.reload(true);
+
         }
     }
 });
@@ -59,7 +60,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     } else {
         //otherwise, print all itinerary created
         $.each(itinerary, function(key, val) {
-            $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>" + val.name + "</li>");
+            $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'><a href='#'>" + val.name + "</a></li>");
         });
     }
 
