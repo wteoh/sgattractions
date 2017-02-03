@@ -34,7 +34,7 @@ $(document).on('click', '#btnCreate', function() {
                 "days": days
             });
             localStorage.itinerary = JSON.stringify(trip);
-            $.mobile.refresh("#main");
+            location.reload(true);
         }
     }
 });
