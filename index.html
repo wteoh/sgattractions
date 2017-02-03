@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Include jQuery Mobile stylesheets -->
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/themes/sgattractions.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
     <!-- Include the jQuery library -->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDflfFbfSt7z998rQsTMGnbQCKuTu0htyA"></script>
     <script src="./js/gmaps.js"></script>
-
-    <link rel="stylesheet" href="css/themes/sgattractions.css" />
-<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 
     <!-- Include style sheet for cardview -->
     <link rel="stylesheet" href="./css/card.css">
@@ -105,11 +105,14 @@
                 </ul>
             </div>
         </div>
-        <form class="ui-filterable">
-            <input id="myFilter" data-type="search">
-        </form>
+        <h1>Showing All Attractions:</h1>
+
+
 
         <div data-role="main" class="ui-responsive ui-content">
+            <form class="ui-filterable">
+                <input id="myFilter" data-type="search">
+            </form>
             <ul data-role="listview" data-inset="true" id="all_attractions_lv" data-filter="true" data-input="#myFilter">
             </ul>
         </div>
