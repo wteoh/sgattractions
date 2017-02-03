@@ -28,7 +28,7 @@ $(document).on('click', '#btnCreate', function() {
             var trip = JSON.parse(localStorage.itinerary);
             trip.push({"name": name,"days": days});
             localStorage.itinerary = JSON.stringify(trip);
-              $.mobile.changePage("#main");
+              $.mobile.refresh("#main")
         }
     }
 });
