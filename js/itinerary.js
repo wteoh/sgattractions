@@ -17,7 +17,7 @@ $(document).on('pagebeforeshow', '#main', function() {
 
     //if the itineray object is empty, display empty result
     if (jQuery.isEmptyObject(itinerary)) {
-        $('#itinerary-ul').append("<li>No Trip Created</li>");
+        $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>No Trip Created</li>");
     } else {
         //otherwise, print all itinerary created
     }
