@@ -60,7 +60,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     } else {
         //otherwise, print all itinerary created
         $.each(itinerary, function(key, val) {
-            $('#itinerary-ul').append("<li><a href='#'>" + val.name + "</a></li>");
+            $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'>" + val.name + "</a></li>");
         });
     }
 
