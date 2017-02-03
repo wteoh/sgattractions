@@ -36,12 +36,12 @@ $(document).on('pagebeforeshow', '#all_attractions_page', function() {
         $('#all_attractions_lv').empty();
     }
 
-    //get attractions JSON and populate list based on category
+    //get all attractions JSON and populate list view
     $.getJSON("./json/attractions.json", function(data) {
         $.each(data, function(key, val) {
-            $('#all_attractions_lv').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
-                "' class='thumbnail'/><h2>" +
-                val.name + "</h2></a></li>");
+            $('#all_attractions_lv').append("<li><a href='#' id='" + val.id + "'><img src='" + val.image +
+                "' class='thumbnail'/>" +
+                val.name + "</a></li>");
         });
     });
 
