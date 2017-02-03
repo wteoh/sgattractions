@@ -36,7 +36,7 @@ $(document).on('pagebeforeshow', '#all_attractions_page', function() {
         $('#all_attractions_lv').empty();
     }
 
-    //get all attractions JSON and populate list 
+    //get all attractions JSON and populate list
     $.getJSON("./json/attractions.json", function(data) {
         $.each(data, function(key, val) {
             $('#all_attractions_lv').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +

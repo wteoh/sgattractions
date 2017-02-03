@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Include the jQuery Mobile library -->
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+    <script src="./js/jquery.validate.js" charset="utf-8"></script>
     <script src="./js/itinerary.js" charset="utf-8"></script>
 </head>
 
@@ -25,28 +25,33 @@
     <div data-role="page" id="main">
         <div data-role="content">
             <!-- add button with list view -->
-            <a href="#form" data-role="button" data-icon="plus">Create New Intinerary</a>
+            <a href="#form" data-role="button" data-icon="plus" data-rel="popup" data-position-to="window" data-transition="pop">Create New Intinerary</a>
             <ul data-role="listview" data-corners="false" data-inset="true" id="itinerary-ul">
                 <li data-role="list-divider">My intinerary</li>
             </ul>
 
         </div>
+        <div data-role="popup" id="form" data-theme="a" class="ui-corner-all">
+          <form>
+              <div class="ui-body ui-body-c">
+                  <div data-role="fieldcontain">
+                      <label for="name-c">Trip Name:</label>
+                      <input type="text" name="name" id="name-c" value="" />
+                      <label style="font-size:10px;color:red;height:3px;" id="err_name"></label>
+                  </div>
+                  <div data-role="fieldcontain">
+                      <label for="days">Number of Days:</label>
+                      <input type="number" name="days" id="days" value="" />
+                  </div>
+                  <button id="btnCreate">Create Trip</button>
+              </div>
+          </form>
+        </div>
+
     </div>
-    <div data-role="page" id="form">
-        <form>
-            <div class="ui-body ui-body-c">
-                <div data-role="fieldcontain">
-                    <label for="name-c">Trip Name:</label>
-                    <input type="text" name="name" id="name-c" value="" />
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="name-c">Number of Days:</label>
-                    <input type="number" name="name" id="name-c" value="" />
-                </div>
-                <button>Create Trip</button>
-            </div>
-        </form>
-    </div>
+
+
+
 
 </body>
 
