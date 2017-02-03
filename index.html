@@ -101,7 +101,11 @@
                 </ul>
             </div>
         </div>
-        <div data-role="main" class="ui-responsive ui-content">
+        <form class="ui-filterable">
+            <input id="myFilter" data-type="search">
+        </form>
+
+        <div data-role="main" class="ui-responsive ui-content" data-input="#myFilter">
             <ul data-role="listview" data-inset="true" id="all_attractions_lv">
             </ul>
         </div>
