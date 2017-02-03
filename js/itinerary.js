@@ -18,7 +18,10 @@ $(document).on('click', '#btnCreate', function() {
 
     if (localStorage.itinerary == undefined) {
         //store JSON object into localStorage
-        localStorage.itinerary = JSON.stringify([{"name": name,"days": days}]);
+        localStorage.itinerary = JSON.stringify([{
+            "name": name,
+            "days": days
+        }]);
     } else {
         //check if tripname exists
         if (Boolean(checkName(name))) {
@@ -26,9 +29,12 @@ $(document).on('click', '#btnCreate', function() {
             return false;
         } else {
             var trip = JSON.parse(localStorage.itinerary);
-            trip.push({"name": name,"days": days});
+            trip.push({
+                "name": name,
+                "days": days
+            });
             localStorage.itinerary = JSON.stringify(trip);
-              $.mobile.refresh("#main")
+            $.mobile.refresh("#main");
         }
     }
 });
