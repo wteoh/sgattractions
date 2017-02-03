@@ -89,8 +89,8 @@ function checkName(name) {
     var data = JSON.parse(localStorage.itinerary);
 
     //loop JSON check for itinerary with similar names
-    $.each(data, function() {
-        if (data.name == name) {
+    $.each(data, function(key, val) {
+        if (val.name == name) {
             exist = true;
             return false;
         }
@@ -99,12 +99,6 @@ function checkName(name) {
     return exist;
 }
 
-function UrlExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status != 404;
-}
 
 
 //view itinerary details
