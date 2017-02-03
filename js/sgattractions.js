@@ -30,6 +30,25 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
+//get all attractions
+$(document).on('pagebeforeshow', '#all_attractions_page', function() {
+    if (localStorage.category != "undefined") {
+        $('#all_attractions_lv').empty();
+    }
+
+    //get attractions JSON and populate list based on category
+    $.getJSON("./json/attractions.json", function(data) {
+        $.each(data, function(key, val) {
+            $('#all_attractions_lv').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
+                "' class='thumbnail'/><h2>" +
+                val.name + "</h2></a></li>");
+        });
+    });
+
+
+});
+
+
 //get attraction details based on attraction selected
 $(document).on('pagebeforeshow', '#attraction-details', function() {
 
@@ -49,17 +68,23 @@ $(document).on('pagebeforeshow', '#attraction-details', function() {
     });
 });
 
-
+//listener for attraction listview
 $(document).on('click', '#attraction-list a', function() {
     if (typeof(Storage) !== "undefined") {
-        //localStorage.attraction_id = $(this).attr("id");
         localStorage.attraction_id = $(this).attr("id");
     }
-
     $.mobile.changePage("#attraction-details");
-
 });
 
+//listener for all_attraction listview
+$(document).on('click', '#all_attractions_page a', function() {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.attraction_id = $(this).attr("id");
+    }
+    $.mobile.changePage("#attraction-details");
+});
+
+//listener for map button
 $(document).on('click', '#mapBtn', function(event, ui) {
     $.mobile.changePage("#map");
 });
@@ -74,10 +99,12 @@ $(document).on('pagecreate', '#main', function() {
     });
 });
 
+//render map on pageshow
 $(document).on('pageshow', '#map', function() {
-  //get selected attraction json
+    //get selected attraction json
     var attraction = JSON.parse(localStorage.attraction);
 
+    //create new GMAPs
     var map = new GMaps({
         div: '#map_canvas',
         lat: parseFloat(attraction.lattitude),
@@ -85,6 +112,7 @@ $(document).on('pageshow', '#map', function() {
         zoom: 15
     });
 
+    //adding marker on map
     map.addMarker({
         lat: parseFloat(attraction.lattitude),
         lng: parseFloat(attraction.longtitute),
