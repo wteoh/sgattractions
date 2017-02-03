@@ -22,6 +22,8 @@ $(document).on('click', '#btnCreate', function() {
             "name": name,
             "days": days
         }]);
+
+        location.reload(true);
     } else {
         //check if tripname exists
         if (Boolean(checkName(name))) {
@@ -35,7 +37,6 @@ $(document).on('click', '#btnCreate', function() {
             });
             localStorage.itinerary = JSON.stringify(trip);
             location.reload(true);
-
         }
     }
 });
