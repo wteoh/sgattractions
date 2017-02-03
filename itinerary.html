@@ -26,9 +26,7 @@
         <div data-role="content">
           <!-- add button with list view -->
           <a href="#form" data-role="button" data-icon="plus">Create New Intinerary</a>
-
-          </br/>
-          <ul data-role="listview" data-inset="true" id="itinerary-ul" >
+          <ul data-role="listview" data-corners="false" data-inset="true" id="itinerary-ul" >
               <li data-role="list-divider" >My intinerary</li>
           </ul>
 
@@ -39,47 +37,16 @@
             <form id="check-user" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
                 <fieldset>
                     <div data-role="fieldcontain">
-                        <label for="username">Itinerary Name:</label>
+                        <label for="username">Trip Name:</label>
                         <input type="text" value="" name="username" id="username"/>
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="password">Start Date:</label>
-                        <input type="date" value="" name="password" id="password"/>
+                        <label for="password">Number of days:</label>
+                        <input type="text" value="" name="days" id="txtDays"/>
                     </div>
-
-                    <div data-role="fieldcontain">
-                        <label for="password">Start Date:</label>
-                        <input type="date" value="" name="password" id="password"/>
-                    </div>
-
-                    <input type="button" data-theme="b" name="submit" id="submit" value="Submit">
+                    <button>Create Trip</button>
                 </fieldset>
             </form>
-        </div>
-
-        <div data-role="page" id="form">
-          <div data-role="content">
-                <form id="check-user" class="ui-body ui-body-a ui-corner-all">
-                    <fieldset>
-                        <div data-role="fieldcontain">
-                            <label for="name">Trip Name:</label>
-                            <input type="text" value="" name="name" id="name"/>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="startdate">Start Date:</label>
-                            <input type="date" value="" name="startdate" id="startdate"/>
-                        </div>
-
-                        <div data-role="fieldcontain">
-                            <label for="enddate">End Date:</label>
-                            <input type="date" value="" name="enddate" id="enddate"/>
-                        </div>
-
-                        <button>Create Trip</button>
-                    </fieldset>
-                </form>
-            </div>
-
         </div>
 
     </div>
