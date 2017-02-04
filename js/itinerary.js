@@ -56,19 +56,12 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     if (jQuery.isEmptyObject(favorites)) {
         $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
     } else {
-        //otherwise, print all itinerary created
-        // $.each(favorites, function(key, val) {
-        //   $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + val.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + val.image +
-        //       "' class='thumbnail'/><h2>" +
-        //       val.name + "</h2></a></li>");
-        // });
 
-        //get selected fav list name
-        var favlist = $(this).attr('id');
+        var favlist = localStorage.attraction_id;
 
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
-            if (val.name == favlist) {
+            if (val.id == favlist) {
                 var attraction = getAttraction(val.attr_id);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
@@ -79,7 +72,10 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
-
+$(document).on('click', '#itinerary-ul a', function() {
+  localStorage.attraction_id = $(this).attr('id');
+  $.mobile.changePage("#attraction");
+});
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
     //check if itineray localstorage is undefined
@@ -98,7 +94,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     } else {
         //otherwise, print all itinerary created
         $.each(favlist, function(key, val) {
-            $('#itinerary-ul').append("<li ><a href='#attractions' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
+            $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
         });
     }
 
