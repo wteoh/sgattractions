@@ -64,7 +64,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
                 getAttraction(val.attr_id);
-                var attraction = localStorage.attraction;
+                var attraction = JSON.parse(localStorage.attraction);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
                     attraction.name + "</h2></a></li>");
