@@ -11,7 +11,7 @@ $(document).on('click', '#btnCreate', function() {
         return false;
     }
 
-    if (days == "") {
+    if (desc == "") {
         $("#description").parent().css("background-color", "#ec6565");
         return false;
     }
@@ -25,9 +25,9 @@ $(document).on('click', '#btnCreate', function() {
 
         location.reload(true);
     } else {
-        //check if tripname exists
+        //check if fav list exists
         if (Boolean(checkName(name))) {
-            $("#err_name").html("There is an exisiting trip with a similar name");
+            $("#err_name").html("There is an exisiting list with a similar name");
             return false;
         } else {
             var trip = JSON.parse(localStorage.itinerary);
