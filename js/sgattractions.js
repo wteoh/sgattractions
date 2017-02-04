@@ -148,6 +148,10 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
 //listener for add to fav btnCreate
 $(document).on('click', '#btnAdd', function() {
     //get selected value
-    var attr_id = $("#favddl").val();
+    var fav_name = $("#favddl").val();
+
+    //get current attraction id
+    var attr_id = localStorage.attraction_id;
+
     console.log(attr_id);
 });
