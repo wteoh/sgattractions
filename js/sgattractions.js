@@ -153,5 +153,51 @@ $(document).on('click', '#btnAdd', function() {
     //get current attraction id
     var attr_id = localStorage.attraction_id;
 
+    if (localStorage.favorites == undefined) {
+        //store JSON object into localStorage
+        localStorage.favorites = JSON.stringify([{
+            "fav_name": fav_name,
+            "attr_id": attr_id
+        }]);
+
+        location.reload(true);
+    } else {
+        //check if fav list exists
+        if (Boolean(checkName(fav_name, attr_id))) {
+            $("#err_name").html("Attraction already exist in the list");
+            return false;
+        } else {
+            var fav = JSON.parse(localStorage.favorites);
+            fav.push({
+                "fav_name": fav_name,
+                "attr_id": attr_id
+            });
+            localStorage.favorites = JSON.stringify(fav);
+            location.reload(true);
+        }
+    }
+
+
     console.log(attr_id);
 });
+
+//check if name exists in itinerary JSON
+function checkName(fav_name, attr_id) {
+    var exist = false;
+    //check if localStorage.itinerary is undefined
+    if (localStorage.favorites === undefined) {
+        exist = false;
+    }
+
+    var data = JSON.parse(localStorage.favorites);
+
+    //loop JSON check for itinerary with similar names
+    $.each(data, function(key, val) {
+        if (val.fav_name == fav_name && val.attr_id == attr_id) {
+            exist = true;
+            return false;
+        }
+    });
+
+    return exist;
+}
