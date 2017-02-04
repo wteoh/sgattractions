@@ -125,7 +125,7 @@ $(document).on('pageshow', '#map', function() {
 
 //load all favorite list created
 $(document).on("popupbeforeposition", "#favpopup", function() {
-
+    $("err_name").text = "";
     $('#favddl').empty();
     //get attraction_id
     var attraction_id = localStorage.attraction_id;
