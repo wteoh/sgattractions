@@ -148,6 +148,6 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
 //listener for add to fav btnCreate
 $(document).on('click', '#btnAdd', function() {
     //get selected value
-    var attr_id = $("#favdll").val();
+    var attr_id = $("#favddl").val();
     console.log(attr_id);
 });
