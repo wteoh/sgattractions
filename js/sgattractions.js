@@ -143,4 +143,6 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
         $('#favddl').append("<option value='" + attraction_id + "'>" + val.name + "</option>");
     });
 
+    $("#favddl").trigger("change");
+
 });
