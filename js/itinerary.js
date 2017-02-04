@@ -58,11 +58,11 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
     } else {
 
-        var favlist = localStorage.fav_name;
+        var fav_name = localStorage.fav_name;
 
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
-            if (val.id == favlist) {
+            if (val.name == fav_name) {
                 var attraction = getAttraction(val.attr_id);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
