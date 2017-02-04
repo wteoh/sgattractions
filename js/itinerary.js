@@ -48,7 +48,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
-        favlist = JSON.parse(localStorage.favorites);
+        favlist = JSON.parse(localStorage.favlist);
     } catch (e) {
         favlist = {};
     }
