@@ -144,3 +144,10 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
 
     $("#favddl").trigger("change");
 });
+
+//listener for add to fav btnCreate
+$(document).on('click', '#addfav', function() {
+    //get selected value
+    var attr_id = $("#favdll").val();
+    console.log(attr_id);
+});
