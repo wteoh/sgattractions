@@ -123,7 +123,7 @@ function checkName(name) {
 }
 
 function getAttraction(id) {
-    var attr;
+    var attr = "";
     //get attractions JSON and populate list based on category
     $.getJSON("./json/attractions.json", function(data) {
         $.each(data, function(key, val) {
