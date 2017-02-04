@@ -63,7 +63,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
-                var attraction = getAttraction(val.attr_id);
+                var attraction = localStorage.attraction;
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
                     attraction.name + "</h2></a></li>");
@@ -123,16 +123,13 @@ function checkName(name) {
 }
 
 function getAttraction(id) {
-    var attr = null;
     //get attractions JSON and populate list based on category
     $.getJSON("./json/attractions.json", function(data) {
         $.each(data, function(key, val) {
             if (val.id == id) {
-                attr = val;
+                localStorage.attraction = JSON.stringify(val);
                 return false;
             }
         });
     });
-
-    return attr;
 }
