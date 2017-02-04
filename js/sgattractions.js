@@ -148,7 +148,7 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
 //listener for add to fav btnCreate
 $(document).on('click', '#btnAdd', function() {
     //get selected value
-    var fav_name = $("#favddl").val();
+    var fav_name = $( "#favddl option:selected" ).text();
 
     //get current attraction id
     var attr_id = localStorage.attraction_id;
