@@ -92,11 +92,11 @@ $(document).on('pagebeforeshow', '#main', function() {
 
     //if the itineray object is empty, display empty result
     if (jQuery.isEmptyObject(favlist)) {
-        $('#favlist-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
+        $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
     } else {
         //otherwise, print all favlist created
         $.each(favlist, function(key, val) {
-            $('#favlist-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
+            $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
         });
     }
 
