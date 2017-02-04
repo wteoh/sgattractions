@@ -1,4 +1,4 @@
-//create new itinerary
+//create new favlist
 $(document).on('click', '#btnCreate', function() {
 
     var name = $("#name-c").val();
@@ -15,9 +15,9 @@ $(document).on('click', '#btnCreate', function() {
         return false;
     }
 
-    if (localStorage.favorites == undefined) {
+    if (localStorage.favlist == undefined) {
         //store JSON object into localStorage
-        localStorage.favorites = JSON.stringify([{
+        localStorage.favlist = JSON.stringify([{
             "name": name,
             "desc": desc
         }]);
@@ -29,12 +29,12 @@ $(document).on('click', '#btnCreate', function() {
             $("#err_name").html("There is an exisiting list with a similar name");
             return false;
         } else {
-            var trip = JSON.parse(localStorage.favorites);
+            var trip = JSON.parse(localStorage.favlist);
             trip.push({
                 "name": name,
                 "desc": desc
             });
-            localStorage.favorites = JSON.stringify(trip);
+            localStorage.favlist = JSON.stringify(trip);
             //location.reload(true);
         }
     }
@@ -44,24 +44,24 @@ $(document).on('click', '#btnCreate', function() {
 
 //click handler for li
 $(document).on('pagebeforeshow', '#attractions', function() {
-    //get all attractions from favorites localstorage
-    //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
-    var favorites;
+    //get all attractions from favlist localstorage
+    //try to retrieve favlist JSON, if JSON is null, display No favlist created
+    var favlist;
     try {
-        favorites = JSON.parse(localStorage.favorites);
+        favlist = JSON.parse(localStorage.favorites);
     } catch (e) {
-        favorites = {};
+        favlist = {};
     }
 
     //if the itineray object is empty, display empty result
-    if (jQuery.isEmptyObject(favorites)) {
-        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
+    if (jQuery.isEmptyObject(favlist)) {
+        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
     } else {
 
         var fav_name = localStorage.fav_name;
 
         //get all attractions added to favlist
-        $.each(favorites, function(key, val) {
+        $.each(favlist, function(key, val) {
             if (val.name == fav_name) {
                 var attraction = getAttraction(val.attr_id);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
@@ -73,7 +73,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
-$(document).on('click', '#itinerary-ul a', function() {
+$(document).on('click', '#favlist-ul a', function() {
   localStorage.fav_name = $(this).attr('id');
   $.mobile.changePage("#attractions");
 });
@@ -82,36 +82,36 @@ $(document).on('click', '#itinerary-ul a', function() {
 $(document).on('pagebeforeshow', '#main', function() {
     //check if itineray localstorage is undefined
 
-    //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
+    //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
-        favlist = JSON.parse(localStorage.favorites);
+        favlist = JSON.parse(localStorage.favlist);
     } catch (e) {
         favlist = {};
     }
 
     //if the itineray object is empty, display empty result
     if (jQuery.isEmptyObject(favlist)) {
-        $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
+        $('#favlist-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
     } else {
-        //otherwise, print all itinerary created
+        //otherwise, print all favlist created
         $.each(favlist, function(key, val) {
-            $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
+            $('#favlist-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
         });
     }
 
 });
-//check if name exists in itinerary JSON
+//check if name exists in favlist JSON
 function checkName(name) {
     var exist = false;
-    //check if localStorage.itinerary is undefined
-    if (localStorage.favorites === undefined) {
+    //check if localStorage.favlist is undefined
+    if (localStorage.favlist === undefined) {
         exist = false;
     }
 
-    var data = JSON.parse(localStorage.favorites);
+    var data = JSON.parse(localStorage.favlist);
 
-    //loop JSON check for itinerary with similar names
+    //loop JSON check for favlist with similar names
     $.each(data, function(key, val) {
         if (val.name == name) {
             exist = true;
@@ -137,8 +137,8 @@ function getAttraction(id) {
     return attr;
 }
 
-//view itinerary details
+//view favlist details
 
-//remove activity from itinerary
+//remove activity from favlist
 
-//add activity to itinerary
+//add activity to favlist
