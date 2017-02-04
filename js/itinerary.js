@@ -5,7 +5,6 @@ $(document).on('click', '#btnCreate', function() {
     var desc = $("#description").val();
 
     //validate that name is not empty
-    console.log($("#name-c").val());
     if (name == "") {
         $("#name-c").parent().css("background-color", "#ec6565");
         return false;
@@ -59,7 +58,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
     } else {
 
-        var favlist = localStorage.attraction_id;
+        var favlist = localStorage.fav_name;
 
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
