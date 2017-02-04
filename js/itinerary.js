@@ -23,7 +23,7 @@ $(document).on('click', '#btnCreate', function() {
             "desc": desc
         }]);
 
-        location.reload(true);
+        //location.reload(true);
     } else {
         //check if fav list exists
         if (Boolean(checkName(name))) {
@@ -35,7 +35,7 @@ $(document).on('click', '#btnCreate', function() {
                 "name": name,
                 "desc": desc
             });
-            //localStorage.favorites = JSON.stringify(trip);
+            localStorage.favorites = JSON.stringify(trip);
             //location.reload(true);
         }
     }
