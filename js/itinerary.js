@@ -73,7 +73,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 });
 
-$(document).on('click', '#favlist-ul a', function() {
+$(document).on('click', '#itinerary-ul a', function() {
   localStorage.fav_name = $(this).attr('id');
   $.mobile.changePage("#attractions");
 });
@@ -136,9 +136,3 @@ function getAttraction(id) {
 
     return attr;
 }
-
-//view favlist details
-
-//remove activity from favlist
-
-//add activity to favlist
