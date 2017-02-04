@@ -46,11 +46,11 @@ $(document).on('click', '#btnCreate', function() {
 $(document).on('pagebeforeshow', '#attractions', function() {
     //get all attractions from favlist localstorage
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
-    var favlist;
+    var favorites;
     try {
-        favlist = JSON.parse(localStorage.favlist);
+        favorites = JSON.parse(localStorage.favorites);
     } catch (e) {
-        favlist = {};
+        favorites = {};
     }
 
     //if the itineray object is empty, display empty result
@@ -61,8 +61,8 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         var fav_name = localStorage.fav_name;
 
         //get all attractions added to favlist
-        $.each(favlist, function(key, val) {
-            if (val.name == fav_name) {
+        $.each(favorites, function(key, val) {
+            if (val.fav_name == fav_name) {
                 var attraction = getAttraction(val.attr_id);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
