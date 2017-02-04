@@ -133,7 +133,7 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
     //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
     var favorites;
     try {
-        favorites = JSON.parse(localStorage.favorites);
+        favorites = JSON.parse(localStorage.favlist);
     } catch (e) {
         favorites = {};
     }
@@ -189,7 +189,7 @@ function checkName(fav_name, attr_id) {
         exist = false;
     }
 
-    var data = JSON.parse(localStorage.favorites);
+    var data = JSON.parse(localStorage.favlist);
 
     //loop JSON check for itinerary with similar names
     $.each(data, function(key, val) {
