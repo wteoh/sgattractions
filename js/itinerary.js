@@ -67,7 +67,7 @@ $(document).on('click', '#itinerary-ul a', function() {
         var favlist = $(this).attr('id');
 
         //get all attractions added to favlist
-        $.each(favlist, function(key, val) {
+        $.each(favorites, function(key, val) {
           if(val.name == favlist) {
               var attraction = getAttraction(val.attr_id);
               $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
