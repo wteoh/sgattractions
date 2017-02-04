@@ -35,10 +35,12 @@ $(document).on('click', '#btnCreate', function() {
                 "name": name,
                 "desc": desc
             });
-            localStorage.favorites = JSON.stringify(trip);
-            location.reload(true);
+            //localStorage.favorites = JSON.stringify(trip);
+            //location.reload(true);
         }
     }
+
+    location.reload(true);
 });
 
 //click handler for li
