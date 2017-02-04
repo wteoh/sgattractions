@@ -131,14 +131,14 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
     var attraction_id = localStorage.attraction_id;
 
     //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
-    var itinerary;
+    var favorites;
     try {
-        itinerary = JSON.parse(localStorage.itinerary);
+        favorites = JSON.parse(localStorage.favorites);
     } catch (e) {
-        itinerary = {};
+        favorites = {};
     }
     //otherwise, print all itinerary created
-    $.each(itinerary, function(key, val) {
+    $.each(favorites, function(key, val) {
         $('#favddl').append("<option value='" + attraction_id + "'>" + val.name + "</option>");
     });
 
