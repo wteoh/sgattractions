@@ -42,7 +42,7 @@ $(document).on('click', '#btnCreate', function() {
 });
 
 //click handler for li
-$(document).on('click', '#itinerary-ul a', function() {
+$(document).on('pagebeforeshow', '#attractions', function() {
     //get all attractions from favorites localstorage
     //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
     var favorites;
@@ -68,16 +68,17 @@ $(document).on('click', '#itinerary-ul a', function() {
 
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
-          if(val.name == favlist) {
-              var attraction = getAttraction(val.attr_id);
-              $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
-                  "' class='thumbnail'/><h2>" +
-                  attraction.name + "</h2></a></li>");
-          }
+            if (val.name == favlist) {
+                var attraction = getAttraction(val.attr_id);
+                $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
+                    "' class='thumbnail'/><h2>" +
+                    attraction.name + "</h2></a></li>");
+            }
         });
     }
 
 });
+
 
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
@@ -97,7 +98,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     } else {
         //otherwise, print all itinerary created
         $.each(favlist, function(key, val) {
-            $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
+            $('#itinerary-ul').append("<li ><a href='#attractions' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
         });
     }
 
