@@ -123,3 +123,8 @@ $(document).on('pageshow', '#map', function() {
     //trigger click to show infoWindow
     google.maps.event.trigger(map.markers[0], 'click');
 });
+
+//load all favorite list created
+$(document).on("popupbeforeposition", "#favpopup", function() {
+  console.log("test");
+});
