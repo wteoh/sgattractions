@@ -144,5 +144,4 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
     });
 
     $("#favddl").trigger("change");
-
 });
