@@ -126,7 +126,6 @@ function getAttraction(id) {
 
     var attr = null;
     $.ajax({
-        url: myUrl,
         dataType: 'json',
         async: false,
         data: './json/attractions.json',
