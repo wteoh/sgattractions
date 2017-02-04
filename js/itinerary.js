@@ -54,7 +54,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     }
 
     //if the itineray object is empty, display empty result
-    if (jQuery.isEmptyObject(favlist)) {
+    if (jQuery.isEmptyObject(favorites)) {
         $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
     } else {
 
