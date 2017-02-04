@@ -63,6 +63,16 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
+
+              $.getJSON("./json/attractions.json", function(data) {
+                  $.each(data, function(key, val) {
+                      if (val.id == val.attr_id) {
+                          localStorage.attraction = JSON.stringify(val);
+                          return false;
+                      }
+                  });
+              });
+
                 getAttraction(val.attr_id);
                 var attraction = JSON.parse(localStorage.attraction);
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
@@ -121,16 +131,4 @@ function checkName(name) {
     });
 
     return exist;
-}
-
-function getAttraction(id) {
-    //get attractions JSON and populate list based on category
-    $.getJSON("./json/attractions.json", function(data) {
-        $.each(data, function(key, val) {
-            if (val.id == id) {
-                localStorage.attraction = JSON.stringify(val);
-                return false;
-            }
-        });
-    });
 }
