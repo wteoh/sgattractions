@@ -12,7 +12,6 @@ $(document).on('click', '#category-cards a', function(event, ui) {
 
 //get all attractions based on category selected
 $(document).on('pagebeforeshow', '#attractions', function() {
-    //var category = localStorage.category;
     //empty list to prevent duplicates
     if (localStorage.category != "undefined") {
         $('#attraction-list').empty();
