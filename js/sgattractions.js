@@ -126,6 +126,8 @@ $(document).on('pageshow', '#map', function() {
 
 //load all favorite list created
 $(document).on("popupbeforeposition", "#favpopup", function() {
+
+    $('#favddl').empty();
     //get attraction_id
     var attraction_id = localStorage.attraction_id;
 
@@ -138,7 +140,7 @@ $(document).on("popupbeforeposition", "#favpopup", function() {
     }
     //otherwise, print all itinerary created
     $.each(itinerary, function(key, val) {
-        $('#favddl').append("<option value='" + attraction_id + "'>"+ val.name +"</option>");
+        $('#favddl').append("<option value='" + attraction_id + "'>" + val.name + "</option>");
     });
 
 });
