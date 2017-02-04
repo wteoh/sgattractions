@@ -2,7 +2,7 @@
 $(document).on('click', '#btnCreate', function() {
 
     var name = $("#name-c").val();
-    var days = $("#days").val();
+    var desc = $("#description").val();
 
     //validate that name is not empty
     console.log($("#name-c").val());
@@ -12,7 +12,7 @@ $(document).on('click', '#btnCreate', function() {
     }
 
     if (days == "") {
-        $("#days").parent().css("background-color", "#ec6565");
+        $("#description").parent().css("background-color", "#ec6565");
         return false;
     }
 
@@ -20,7 +20,7 @@ $(document).on('click', '#btnCreate', function() {
         //store JSON object into localStorage
         localStorage.itinerary = JSON.stringify([{
             "name": name,
-            "days": days
+            "desc": desc
         }]);
 
         location.reload(true);
@@ -33,7 +33,7 @@ $(document).on('click', '#btnCreate', function() {
             var trip = JSON.parse(localStorage.itinerary);
             trip.push({
                 "name": name,
-                "days": days
+                "desc": desc
             });
             localStorage.itinerary = JSON.stringify(trip);
             location.reload(true);
