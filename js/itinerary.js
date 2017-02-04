@@ -16,9 +16,9 @@ $(document).on('click', '#btnCreate', function() {
         return false;
     }
 
-    if (localStorage.itinerary == undefined) {
+    if (localStorage.favorites == undefined) {
         //store JSON object into localStorage
-        localStorage.itinerary = JSON.stringify([{
+        localStorage.favorites = JSON.stringify([{
             "name": name,
             "desc": desc
         }]);
@@ -30,12 +30,12 @@ $(document).on('click', '#btnCreate', function() {
             $("#err_name").html("There is an exisiting list with a similar name");
             return false;
         } else {
-            var trip = JSON.parse(localStorage.itinerary);
+            var trip = JSON.parse(localStorage.favorites);
             trip.push({
                 "name": name,
                 "desc": desc
             });
-            localStorage.itinerary = JSON.stringify(trip);
+            localStorage.favorites = JSON.stringify(trip);
             location.reload(true);
         }
     }
@@ -73,9 +73,10 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 });
 
 $(document).on('click', '#itinerary-ul a', function() {
-  localStorage.attraction_id = $(this).attr('id');
-  $.mobile.changePage("#attraction");
+  localStorage.fav_name = $(this).attr('id');
+  $.mobile.changePage("#attractions");
 });
+
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
     //check if itineray localstorage is undefined
@@ -83,7 +84,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     //try to retrieve itinerary JSON, if JSON is null, display No itinerary created
     var favlist;
     try {
-        favlist = JSON.parse(localStorage.itinerary);
+        favlist = JSON.parse(localStorage.favorites);
     } catch (e) {
         favlist = {};
     }
@@ -99,29 +100,15 @@ $(document).on('pagebeforeshow', '#main', function() {
     }
 
 });
-
-
-$(document).on('pageinit', '#form', function() {
-    $(document).on('click', '#submit', function() {
-        //check if itinerary json file exist
-        try {
-            itinerary = JSON.parse(localStorage.itinerary);
-        } catch (e) {
-            itinerary = {};
-        }
-
-    });
-});
-
 //check if name exists in itinerary JSON
 function checkName(name) {
     var exist = false;
     //check if localStorage.itinerary is undefined
-    if (localStorage.itinerary === undefined) {
+    if (localStorage.favorites === undefined) {
         exist = false;
     }
 
-    var data = JSON.parse(localStorage.itinerary);
+    var data = JSON.parse(localStorage.favorites);
 
     //loop JSON check for itinerary with similar names
     $.each(data, function(key, val) {
