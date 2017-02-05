@@ -63,25 +63,32 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
-            var attr = null;
+                var attr = null;
                 $.getJSON("./json/attractions.json").done(function(data) {
                     $.each(data, function(key, val) {
                         if (val.id == id) {
-                          attr = JSON.stringify(val);
+                            attr = JSON.stringify(val);
                             return false;
                         }
                     });
+
+                    displayAttractions(attr);
                 });
 
-                var attraction = JSON.parse(attr);
-                $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
-                    "' class='thumbnail'/><h2>" +
-                    attraction.name + "</h2></a></li>");
+
             }
         });
     }
 
 });
+
+function displayAttractions(attr) {
+    var attraction = JSON.parse(attr);
+    $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
+        "' class='thumbnail'/><h2>" +
+        attraction.name + "</h2></a></li>");
+
+}
 
 $(document).on('click', '#itinerary-ul a', function() {
     localStorage.fav_name = $(this).attr('id');
