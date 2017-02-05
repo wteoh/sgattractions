@@ -44,6 +44,7 @@ $(document).on('click', '#btnCreate', function() {
 
 //click handler for li
 $(document).on('pagebeforeshow', '#attractions', function() {
+    $('#attraction-list').empty();
     //get all attractions from favlist localstorage
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favorites;
@@ -95,8 +96,7 @@ $(document).on('click', '#itinerary-ul a', function() {
 
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
-    //check if itineray localstorage is undefined
-
+    $('#itinerary-ul').empty();
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
