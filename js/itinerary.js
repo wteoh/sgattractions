@@ -94,7 +94,7 @@ function displayAttractions(attr) {
 
 $(document).on('click', '#attraction-list a', function() {
     localStorage.attraction_id = $(this).attr("id");
-    $.mobile.changePage("index.html#attractions");
+    $.mobile.changePage("index.html#attraction-details");
 });
 
 
