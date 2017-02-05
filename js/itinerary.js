@@ -63,18 +63,8 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
-                // getAttraction(val.attr_id);
-
-                $.getJSON("./json/attractions.json", function(data) {
-                    $.each(data, function(key, val) {
-                        if (val.id == val.attr_id) {
-                            localStorage.attraction = JSON.stringify(val);
-                            return false;
-                        }
-                    });
-                });
-
-                var attraction = JSON.parse(localStorage.attraction);
+                var attr = getAttraction(val.attr_id);
+                var attraction = localStorage.attraction;
                 $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
                     "' class='thumbnail'/><h2>" +
                     attraction.name + "</h2></a></li>");
@@ -85,8 +75,8 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 });
 
 $(document).on('click', '#itinerary-ul a', function() {
-    localStorage.fav_name = $(this).attr('id');
-    $.mobile.changePage("#attractions");
+  localStorage.fav_name = $(this).attr('id');
+  $.mobile.changePage("#attractions");
 });
 
 //retrieve all fav list
@@ -134,13 +124,16 @@ function checkName(name) {
 }
 
 function getAttraction(id) {
+    var attr = null;
     //get attractions JSON and populate list based on category
-    $.getJSON("./json/attractions.json", function(data) {
+    return $.getJSON("./json/attractions.json").then(function(data) {
         $.each(data, function(key, val) {
             if (val.id == id) {
-                localStorage.attraction = JSON.stringify(val);
+                attr = JSON.stringify(val);
                 return false;
             }
         });
+
+        return attr;
     });
 }
