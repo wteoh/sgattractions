@@ -44,7 +44,6 @@ $(document).on('click', '#btnCreate', function() {
 
 //click handler for li
 $(document).on('pagebeforeshow', '#attractions', function() {
-
     //get all attractions from favlist localstorage
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favorites;
@@ -58,7 +57,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     if (jQuery.isEmptyObject(favorites)) {
         $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
     } else {
-        $('#attraction-list').empty();
+
         var fav_name = localStorage.fav_name;
 
         //get all attractions added to favlist
@@ -73,8 +72,11 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                             return false;
                         }
                     });
+
                     displayAttractions(attr);
                 });
+
+
             }
         });
     }
@@ -96,6 +98,7 @@ $(document).on('click', '#itinerary-ul a', function() {
 
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
+    //check if itineray localstorage is undefined
 
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
@@ -109,7 +112,6 @@ $(document).on('pagebeforeshow', '#main', function() {
     if (jQuery.isEmptyObject(favlist)) {
         $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
     } else {
-        $('#itinerary-ul').empty();
         //otherwise, print all favlist created
         $.each(favlist, function(key, val) {
             $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
