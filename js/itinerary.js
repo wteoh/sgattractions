@@ -76,9 +76,10 @@ $(document).on('pagebeforeshow', '#attractions', function() {
             });
         }
 
-    }).done(funtion() {
+    }).done(funtion(data) {
         if (count == 0) {
             $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
+
         }
     });
 
