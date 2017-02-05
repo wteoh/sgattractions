@@ -72,15 +72,15 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                         return false;
                     }
                 });
-                // displayAttractions(attr);
+                if (count == 0) {
+                    $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
+                }
             });
         }
 
     });
 
-    if (count == 0) {
-        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
-    }
+
 
 });
 
