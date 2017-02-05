@@ -62,6 +62,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     //get all attractions added to favlist
     $.each(favorites, function(key, val) {
         if (val.fav_name == fav_name) {
+            count++;
             var attr = null;
             $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val2) {
@@ -73,16 +74,13 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                     }
                 });
 
-            }).done(function(data) {
-                if (count == 0) {
-                    $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
-                }
             });
         }
-
     });
 
-
+    if (count == 0) {
+        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
+    }
 
 });
 
