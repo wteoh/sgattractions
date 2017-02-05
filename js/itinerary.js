@@ -78,10 +78,13 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                 displayAttractions(attr);
             });
 
-            if (count == 0) {
-                $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
-            }
+
         }
+
+        if (count == 0) {
+            $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
+        }
+        
     });
 
 
