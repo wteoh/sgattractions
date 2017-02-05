@@ -87,7 +87,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 function displayAttractions(attr) {
     var attraction = JSON.parse(attr);
-    $('#attraction-list').append("<li data-role="list-divider">My Favorite List</li>");
+    $('#attraction-list').append("<li data-role='list-divider'>My Favorite List</li>");
     $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
         "' class='thumbnail'/><h2>" +
         attraction.name + "</h2></a></li>");
