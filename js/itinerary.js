@@ -132,11 +132,11 @@ $(document).on('pagebeforeshow', '#main', function() {
 function checkName(name) {
     var exist = false;
     //check if localStorage.favlist is undefined
-    if (localStorage.favlist === undefined) {
+    if (localStorage.favorites === undefined) {
         exist = false;
     }
 
-    var data = JSON.parse(localStorage.favlist);
+    var data = JSON.parse(localStorage.favorites);
 
     //loop JSON check for favlist with similar names
     $.each(data, function(key, val) {
