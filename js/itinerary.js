@@ -63,7 +63,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
     $.each(favorites, function(key, val) {
         if (val.fav_name == fav_name) {
             var attr = null;
-            $.getJSON("./json/attractions.json").done(function(data) {
+            $.getJSON("./json/attractions.json", function(data) {
                 $.each(data, function(key, val2) {
                     if (val2.id == val.attr_id) {
                         attr = JSON.stringify(val2);
@@ -73,14 +73,13 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                     }
                 });
 
+            }).done(function(data) {
+                if (count == 0) {
+                    $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
+                }
             });
         }
 
-    }).done(funtion(data) {
-        if (count == 0) {
-            $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No Favorites Added</li>");
-
-        }
     });
 
 
