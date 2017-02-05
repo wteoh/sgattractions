@@ -86,8 +86,16 @@ function displayAttractions(attr) {
     $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
         "' class='thumbnail'/><h2>" +
         attraction.name + "</h2></a></li>");
-
 }
+
+//listener for attraction listview
+$(document).on('click', '#attraction-list a', function() {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.attraction_id = $(this).attr("id");
+    }
+    $.mobile.changePage("./index.html#attraction-details");
+});
+
 
 $(document).on('click', '#itinerary-ul a', function() {
     localStorage.fav_name = $(this).attr('id');
