@@ -46,6 +46,8 @@ $(document).on('click', '#btnCreate', function() {
 $(document).on('pagebeforeshow', '#attractions', function() {
 
     $('#attraction-list').empty();
+    $('#attraction-list').append("<li data-role='list-divider'>My Favorite List</li>");
+
     //get all attractions from favlist localstorage
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favorites;
@@ -87,7 +89,6 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 function displayAttractions(attr) {
     var attraction = JSON.parse(attr);
-    $('#attraction-list').append("<li data-role='list-divider'>My Favorite List</li>");
     $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
         "' class='thumbnail'/><h2>" +
         attraction.name + "</h2></a></li>");
