@@ -64,19 +64,23 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         if (val.fav_name == fav_name) {
 
             var attr = null;
+            var count = 0;
             $.getJSON("./json/attractions.json").done(function(data) {
                 $.each(data, function(key, val2) {
                     if (val2.id == val.attr_id) {
                         attr = JSON.stringify(val2);
+                        count++;
                         return false;
                     }
                 });
 
-
+                displayAttractions(attr);
             });
-        }
 
-        displayAttractions(attr);
+            if (count == 0) {
+                $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
+            }
+        }
     });
 
 
@@ -84,11 +88,6 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 function displayAttractions(attr) {
     var attraction = JSON.parse(attr);
-
-    //if the itineray object is empty, display empty result
-    if (jQuery.isEmptyObject(attraction)) {
-        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
-    }
     $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
         "' class='thumbnail'/><h2>" +
         attraction.name + "</h2></a></li>");
