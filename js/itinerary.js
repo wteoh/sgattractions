@@ -67,7 +67,7 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                 var attr = null;
                 $.getJSON("./json/attractions.json").done(function(data) {
                     $.each(data, function(key, val2) {
-                        if (val2.id == val.id) {
+                        if (val2.id == val.attr_id) {
                             attr = JSON.stringify(val2);
                             return false;
                         }
