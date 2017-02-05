@@ -56,38 +56,39 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         favorites = {};
     }
 
-    //if the itineray object is empty, display empty result
-    if (jQuery.isEmptyObject(favorites)) {
-        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
-    } else {
 
-        var fav_name = localStorage.fav_name;
+    var fav_name = localStorage.fav_name;
 
-        //get all attractions added to favlist
-        $.each(favorites, function(key, val) {
-            if (val.fav_name == fav_name) {
+    //get all attractions added to favlist
+    $.each(favorites, function(key, val) {
+        if (val.fav_name == fav_name) {
 
-                var attr = null;
-                $.getJSON("./json/attractions.json").done(function(data) {
-                    $.each(data, function(key, val2) {
-                        if (val2.id == val.attr_id) {
-                            attr = JSON.stringify(val2);
-                            return false;
-                        }
-                    });
-
-                    displayAttractions(attr);
+            var attr = null;
+            $.getJSON("./json/attractions.json").done(function(data) {
+                $.each(data, function(key, val2) {
+                    if (val2.id == val.attr_id) {
+                        attr = JSON.stringify(val2);
+                        return false;
+                    }
                 });
 
 
-            }
-        });
-    }
+            });
+        }
+
+        displayAttractions(attr);
+    });
+
 
 });
 
 function displayAttractions(attr) {
     var attraction = JSON.parse(attr);
+
+    //if the itineray object is empty, display empty result
+    if (jQuery.isEmptyObject(attraction)) {
+        $('#attraction-list').append("<li class='ui-li-static ui-body-a'>No favlist Added</li>");
+    }
     $('#attraction-list').append("<li class='ui-li-has-thumb ui-first-child'><a id='" + attraction.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + attraction.image +
         "' class='thumbnail'/><h2>" +
         attraction.name + "</h2></a></li>");
