@@ -93,6 +93,12 @@ function displayAttractions(attr) {
 
 }
 
+$(document).on('click', '#attraction-list a', function() {
+    localStorage.attraction_id = $(this).attr("id");
+    $.mobile.changePage("index.html#attractions");
+});
+
+
 $(document).on('click', '#itinerary-ul a', function() {
     localStorage.fav_name = $(this).attr('id');
     $.mobile.changePage("#attractions");
