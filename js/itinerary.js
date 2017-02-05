@@ -39,7 +39,6 @@ $(document).on('click', '#btnCreate', function() {
         }
     }
 
-    location.reload(true);
     var toast = function(msg) {
         $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>" + msg + "</h3></div>")
             .css({
@@ -57,6 +56,9 @@ $(document).on('click', '#btnCreate', function() {
                 $(this).remove();
             });
     }
+
+    //location.reload(true);
+
 });
 
 //click handler for li
