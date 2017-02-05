@@ -72,11 +72,8 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                             return false;
                         }
                     });
-
                     displayAttractions(attr);
                 });
-                return false;
-
             }
         });
     }
