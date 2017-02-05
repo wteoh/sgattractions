@@ -96,7 +96,7 @@ $(document).on('click', '#itinerary-ul a', function() {
 
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
-    $('#itinerary-ul').empty();
+
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
@@ -109,6 +109,7 @@ $(document).on('pagebeforeshow', '#main', function() {
     if (jQuery.isEmptyObject(favlist)) {
         $('#itinerary-ul').append("<li class='ui-li-static ui-body-a'>No Favorite List Created</li>");
     } else {
+        $('#itinerary-ul').empty();
         //otherwise, print all favlist created
         $.each(favlist, function(key, val) {
             $('#itinerary-ul').append("<li ><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r' id='" + val.name + "'><h2>" + val.name + "</h2><p>" + val.desc + "</p></a></li>");
