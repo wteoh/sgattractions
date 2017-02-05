@@ -68,10 +68,11 @@ $(document).on('pagebeforeshow', '#attractions', function() {
                     if (val2.id == val.attr_id) {
                         attr = JSON.stringify(val2);
                         displayAttractions(attr);
+                        count++;
                         return false;
                     }
                 });
-                displayAttractions(attr);
+                // displayAttractions(attr);
             });
         }
 
