@@ -46,7 +46,6 @@ $(document).on('click', '#btnCreate', function() {
 $(document).on('pagebeforeshow', '#attractions', function() {
 
     $('#attraction-list').empty();
-    $('#attraction-list').append("<li data-role='list-divider'>My Favorite List</li>");
 
     //get all attractions from favlist localstorage
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
@@ -109,7 +108,7 @@ $(document).on('click', '#itinerary-ul a', function() {
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
     $('#itinerary-ul').empty();
-
+    $('#itinerary-ul').append("<li data-role='list-divider'>My Favorite List</li>");
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
