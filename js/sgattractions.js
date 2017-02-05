@@ -189,7 +189,7 @@ function checkName(fav_name, attr_id) {
         exist = false;
     }
 
-    var data = JSON.parse(localStorage.favlist);
+    var data = JSON.parse(localStorage.favorites);
 
     //loop JSON check for itinerary with similar names
     $.each(data, function(key, val) {
