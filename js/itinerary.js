@@ -63,18 +63,19 @@ $(document).on('pagebeforeshow', '#attractions', function() {
         //get all attractions added to favlist
         $.each(favorites, function(key, val) {
             if (val.fav_name == fav_name) {
+
                 var attr = null;
                 $.getJSON("./json/attractions.json").done(function(data) {
-                    $.each(data, function(key, val) {
-                        if (val.id == id) {
-                            attr = JSON.stringify(val);
+                    $.each(data, function(key, val2) {
+                        if (val2.id == val.id) {
+                            attr = JSON.stringify(val2);
                             return false;
                         }
                     });
 
                     displayAttractions(attr);
                 });
-
+                return false;
 
             }
         });
@@ -92,18 +93,6 @@ function displayAttractions(attr) {
 
 $(document).on('click', '#itinerary-ul a', function() {
     localStorage.fav_name = $(this).attr('id');
-
-    //get attractions JSON and store to localStorage
-    $.getJSON("./json/attractions.json", function(data) {
-        $.each(data, function(key, val) {
-            if (val.id == id) {
-                localStorage.attraction = JSON.stringify(val);
-                return false;
-            }
-        });
-    });
-
-
     $.mobile.changePage("#attractions");
 });
 
