@@ -108,7 +108,7 @@ $(document).on('click', '#itinerary-ul a', function() {
 //retrieve all fav list
 $(document).on('pagebeforeshow', '#main', function() {
     $('#itinerary-ul').empty();
-    $('#itinerary-ul').append("<li data-role='list-divider'>My Favorite List</li>");
+    //$('#itinerary-ul').append("<li data-role='list-divider'>My Favorite List</li>");
     //try to retrieve favlist JSON, if JSON is null, display No favlist created
     var favlist;
     try {
