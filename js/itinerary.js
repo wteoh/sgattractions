@@ -58,13 +58,14 @@ $(document).on('pagebeforeshow', '#attractions', function() {
 
 
     var fav_name = localStorage.fav_name;
-
+    var count = 0;
     //get all attractions added to favlist
     $.each(favorites, function(key, val) {
+
         if (val.fav_name == fav_name) {
 
             var attr = null;
-            var count = 0;
+
             $.getJSON("./json/attractions.json").done(function(data) {
                 $.each(data, function(key, val2) {
                     if (val2.id == val.attr_id) {
