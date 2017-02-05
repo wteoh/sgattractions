@@ -93,7 +93,7 @@ $(document).on('click', '#attraction-list a', function() {
     if (typeof(Storage) !== "undefined") {
         localStorage.attraction_id = $(this).attr("id");
     }
-    $.mobile.changePage("./index.html#attraction-details");
+    $.mobile.changePage("#attraction-details");
 });
 
 
